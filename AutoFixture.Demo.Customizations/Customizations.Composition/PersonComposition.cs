@@ -1,6 +1,6 @@
 ﻿namespace AutoFixture.Demo.Customizations.Customizations.Composition;
 
-internal class PersonComposition
+public class PersonComposition
 {
     public IFixture GetPersonComposition()
     {

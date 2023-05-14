@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Customizations.SpecimenBuilders;
+﻿using AutoFixture.Demo.Customizations.Customizations.Composition;
+using AutoFixture.Demo.Customizations.SpecimenBuilders;
 using AutoFixture.Demo.Models;
 using FluentAssertions;
 
@@ -9,6 +10,10 @@ public class PersonTests
     [Fact]
     public void CustomizedPipeline()
     {
+        //var fixture = (new PersonComposition()).GetPersonComposition();
+        //fixture.Customizations.Add(new NamePropertyGenerator());
+        //fixture.Customizations.Add(new EmailPropertyGenerator());
+
         var fixture = new Fixture();
         fixture.Customizations.Add(new NamePropertyGenerator());
         fixture.Customizations.Add(new EmailPropertyGenerator());

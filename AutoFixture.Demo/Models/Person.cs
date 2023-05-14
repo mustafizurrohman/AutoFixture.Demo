@@ -11,7 +11,7 @@ public class Person
 
     public string Firstname { get; init; } 
     public string Lastname { get; init; }
-    // public string Email { get; init; }
+    public string Email { get; init; }
     public string PhoneNumber { get; init; }
     public DateTime DateOfBirth { get; init; }
 
@@ -26,7 +26,8 @@ public class Person
         Lastname = lastname ?? throw new ArgumentNullException(nameof(lastname));
         
         // Email = (new MailAddress(email)).Address;
-        
+        Email = (new MailAddress(Firstname + "." + Lastname + "@googlemail.com")).Address;
+
         PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));  
 
         //if (dateOfBirth > Now)
