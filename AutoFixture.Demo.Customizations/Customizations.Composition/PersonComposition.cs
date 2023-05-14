@@ -1,13 +1,12 @@
 ﻿namespace AutoFixture.Demo.Customizations.Customizations.Composition;
 
-public class PersonComposition
+public static class PersonComposition
 {
-    public IFixture GetPersonComposition()
+    public static IFixture GetPersonFixture()
     {
         var customizations = new List<ICustomization>()
         {
-            new PhoneNumberCustomization(),
-            new NameCustomization()
+            new FixtureHelper()
         };
 
         var fixture = new Fixture()

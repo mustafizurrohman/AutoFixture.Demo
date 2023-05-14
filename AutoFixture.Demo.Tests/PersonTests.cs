@@ -10,15 +10,9 @@ public class PersonTests
     [Fact]
     public void CustomizedPipeline()
     {
-        //var fixture = (new PersonComposition()).GetPersonComposition();
-        //fixture.Customizations.Add(new NamePropertyGenerator());
-        //fixture.Customizations.Add(new EmailPropertyGenerator());
+        var fixture = PersonComposition.GetPersonFixture();
 
-        var fixture = new Fixture();
-        fixture.Customizations.Add(new NamePropertyGenerator());
-        fixture.Customizations.Add(new EmailPropertyGenerator());
-
-        var person = fixture.Create<Person>();
+        var person = fixture.CreateMany<Person>().ToList();
 
         person.Should().NotBeNull();
     }

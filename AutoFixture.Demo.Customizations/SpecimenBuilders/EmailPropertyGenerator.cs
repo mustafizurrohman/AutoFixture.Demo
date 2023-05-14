@@ -17,7 +17,7 @@ public class EmailPropertyGenerator : ISpecimenBuilder
             return new NoSpecimen();
 
         if (propertyInfo.Name.Contains("Email", StringComparison.InvariantCultureIgnoreCase))
-            return Faker.Name.FirstName() + "@gmail.com";
+            return new OmitSpecimen();
 
         return new NoSpecimen();
     }
