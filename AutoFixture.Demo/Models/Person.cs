@@ -9,24 +9,24 @@ public class Person
 {
     private static DateTime Now => DateTime.Now;
 
-    public string Firstname { get; init; } 
-    public string Lastname { get; init; }
+    public string FirstName { get; init; } 
+    public string LastName { get; init; }
     public string Email { get; init; }
     public string PhoneNumber { get; init; }
     public DateTime DateOfBirth { get; init; }
 
-    public string FullName => Firstname + " " + Lastname;
+    public string FullName => FirstName + " " + LastName;
     
     public int AgeInYears => Now.Year - DateOfBirth.Year;
 
-    public Person(string firstname, string lastname, string email, string phoneNumber, DateTime dateOfBirth)
+    public Person(string firstName, string lastName, string email, string phoneNumber, DateTime dateOfBirth)
     {
-        Firstname = firstname ?? throw new ArgumentNullException(nameof(firstname));
+        FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
         
-        Lastname = lastname ?? throw new ArgumentNullException(nameof(lastname));
+        LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
         
         // Email = (new MailAddress(email)).Address;
-        Email = (new MailAddress(Firstname + "." + Lastname + "@googlemail.com")).Address;
+        Email = (new MailAddress(FirstName + "." + LastName + "@gmail.com")).Address;
 
         PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));  
 

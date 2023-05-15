@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33706.43
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Demo", "AutoFixture.Demo\AutoFixture.Demo.csproj", "{25419EF6-FE2C-4044-A720-F654C53F84A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixture.Demo", "AutoFixture.Demo\AutoFixture.Demo.csproj", "{25419EF6-FE2C-4044-A720-F654C53F84A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Demo.Customizations", "AutoFixture.Demo.Customizations\AutoFixture.Demo.Customizations.csproj", "{5302BBE6-3447-44D5-928C-4C4FBA9ED152}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixture.Demo.Customizations", "AutoFixture.Demo.Customizations\AutoFixture.Demo.Customizations.csproj", "{5302BBE6-3447-44D5-928C-4C4FBA9ED152}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Demo.Tests", "AutoFixture.Demo.Tests\AutoFixture.Demo.Tests.csproj", "{67278EDE-9CC5-42FB-ACCE-C481D6542144}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixture.Demo.Tests", "AutoFixture.Demo.Tests\AutoFixture.Demo.Tests.csproj", "{67278EDE-9CC5-42FB-ACCE-C481D6542144}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Demo.Core", "AutoFixture.Demo.Core\AutoFixture.Demo.Core.csproj", "{AB8A0E38-5172-4E03-B08E-FB50AE596911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{67278EDE-9CC5-42FB-ACCE-C481D6542144}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67278EDE-9CC5-42FB-ACCE-C481D6542144}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67278EDE-9CC5-42FB-ACCE-C481D6542144}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8A0E38-5172-4E03-B08E-FB50AE596911}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8A0E38-5172-4E03-B08E-FB50AE596911}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8A0E38-5172-4E03-B08E-FB50AE596911}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8A0E38-5172-4E03-B08E-FB50AE596911}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

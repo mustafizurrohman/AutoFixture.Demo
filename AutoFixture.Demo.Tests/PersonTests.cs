@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Customizations.Customizations.Composition;
+﻿using AutoFixture.Demo.Core.ExtensionMethods;
+using AutoFixture.Demo.Customizations.Customizations.Composition;
 using AutoFixture.Demo.Customizations.SpecimenBuilders;
 using AutoFixture.Demo.Models;
 using FluentAssertions;
@@ -10,10 +11,20 @@ public class PersonTests
     [Fact]
     public void CustomizedPipeline()
     {
-        var fixture = PersonComposition.GetPersonFixture();
+        var fixture = new Fixture();
+        fixture.Customizations.Add(new NamePropertyGenerator());
+        //fixture.Customizations.Add(new DateOfBirthPropertyGenerator());
+        //fixture.Customizations.Add(new EmailPropertyGenerator());
+        //fixture.Customizations.Add(new PhoneNumberPropertyGenerator());
 
-        var person = fixture.CreateMany<Person>().ToList();
+        //var person = fixture.CreateMany<Person>().ToList();
 
-        person.Should().NotBeNull();
+        //var debug = person.ToFormattedJsonFailSafe();
+
+        //person.Should().NotBeNull();
+
+        var person = fixture.Create<Person>();
+
+        person.FullName.Should().Contain(" ");
     }
 }

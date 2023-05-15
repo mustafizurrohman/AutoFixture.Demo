@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AutoFixture.Demo.Core\AutoFixture.Demo.Core.csproj" />
     <ProjectReference Include="..\AutoFixture.Demo.Customizations\AutoFixture.Demo.Customizations.csproj" />
     <ProjectReference Include="..\AutoFixture.Demo\AutoFixture.Demo.csproj" />
   </ItemGroup>
