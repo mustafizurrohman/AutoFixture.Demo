@@ -6,7 +6,7 @@ public static class PersonComposition
     {
         var customizations = new List<ICustomization>()
         {
-            new FixtureHelper()
+            new PersonCustomization()
         };
 
         var fixture = new Fixture()

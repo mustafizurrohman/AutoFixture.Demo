@@ -24,7 +24,7 @@ public class NamePropertyGenerator
         //if (propertyInfo.Name.Contains("name", StringComparison.InvariantCultureIgnoreCase))
         //    return Faker.Name.FirstName() + " " + Faker.Name.LastName();
         
-        return new NoSpecimen();
+        return new OmitSpecimen();
 
     }
 }

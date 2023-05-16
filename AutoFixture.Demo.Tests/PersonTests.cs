@@ -1,4 +1,6 @@
-﻿namespace AutoFixture.Demo.Tests;
+﻿using AutoFixture.Demo.Customizations.Customizations;
+
+namespace AutoFixture.Demo.Tests;
 
 public class PersonTests
 {
@@ -6,10 +8,8 @@ public class PersonTests
     public void CustomizedPipeline()
     {
         var fixture = new Fixture();
-        fixture.Customizations.Add(new NamePropertyGenerator());
-        //fixture.Customizations.Add(new DateOfBirthPropertyGenerator());
-        //fixture.Customizations.Add(new EmailPropertyGenerator());
-        fixture.Customizations.Add(new PhoneNumberPropertyGenerator());
+        fixture.Customize(new PersonCustomization());
+
 
         //var person = fixture.CreateMany<Person>().ToList();
 
