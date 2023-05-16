@@ -1,5 +1,4 @@
-global using AutoFixture.Demo.Customizations.Customizations.Composition;
-global using AutoFixture.Demo.Models;
+global using AutoFixture.Demo.Core.ExtensionMethods;
 global using AutoFixture.Kernel;
 
 global using Bogus;

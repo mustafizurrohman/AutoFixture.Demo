@@ -2,10 +2,9 @@
 
 namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-public class EmailPropertyGenerator : ISpecimenBuilder
-{
-    private static Faker Faker => new("de");
-
+public class EmailPropertyGenerator 
+    : PropertyGeneratorBase, ISpecimenBuilder
+{    
     public object Create(object request, ISpecimenContext context)
     {
         if (request is not PropertyInfo propertyInfo)

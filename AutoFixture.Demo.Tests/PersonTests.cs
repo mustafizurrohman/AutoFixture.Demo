@@ -1,10 +1,4 @@
-﻿using AutoFixture.Demo.Core.ExtensionMethods;
-using AutoFixture.Demo.Customizations.Customizations.Composition;
-using AutoFixture.Demo.Customizations.SpecimenBuilders;
-using AutoFixture.Demo.Models;
-using FluentAssertions;
-
-namespace AutoFixture.Demo.Tests;
+﻿namespace AutoFixture.Demo.Tests;
 
 public class PersonTests
 {
@@ -15,7 +9,7 @@ public class PersonTests
         fixture.Customizations.Add(new NamePropertyGenerator());
         //fixture.Customizations.Add(new DateOfBirthPropertyGenerator());
         //fixture.Customizations.Add(new EmailPropertyGenerator());
-        //fixture.Customizations.Add(new PhoneNumberPropertyGenerator());
+        fixture.Customizations.Add(new PhoneNumberPropertyGenerator());
 
         //var person = fixture.CreateMany<Person>().ToList();
 
@@ -25,6 +19,11 @@ public class PersonTests
 
         var person = fixture.Create<Person>();
 
-        person.FullName.Should().Contain(" ");
+        using (new AssertionScope())
+        {
+            person.Should().NotBeNull();
+            person.FullName.Should().Contain(" ");            
+        }       
+        
     }
 }

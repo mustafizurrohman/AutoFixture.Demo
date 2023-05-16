@@ -1,8 +1,7 @@
-﻿using System.Reflection;
+﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
-
-public class DateOfBirthPropertyGenerator : PropertyGeneratorBase, ISpecimenBuilder
+public class DateOfBirthPropertyGenerator 
+    : PropertyGeneratorBase, ISpecimenBuilder
 {
     public object Create(object request, ISpecimenContext context)
     {
@@ -11,8 +10,8 @@ public class DateOfBirthPropertyGenerator : PropertyGeneratorBase, ISpecimenBuil
 
         var propName = GetPropertyName(request);
 
-        var isDobProperty = propName.Contains("date", StringComparison.InvariantCultureIgnoreCase)
-                            && propName.Contains("birth", StringComparison.InvariantCultureIgnoreCase);
+        var isDobProperty = propName.ContainsIgnoreCultureIgnoreCase("date")
+                            && propName.ContainsIgnoreCultureIgnoreCase("birth");
 
         if (!isDobProperty)
             return new NoSpecimen();
@@ -29,3 +28,4 @@ public class DateOfBirthPropertyGenerator : PropertyGeneratorBase, ISpecimenBuil
     }
 }
 
+ 
