@@ -11,7 +11,7 @@ public abstract class PropertyGeneratorBase
         Faker = new Faker(localization);
     }
 
-    protected bool IsStringProperty(object request)
+    protected static bool IsStringProperty(object request)
     {
         if (request is not PropertyInfo propertyInfo)
             return false;
@@ -20,7 +20,7 @@ public abstract class PropertyGeneratorBase
 
     }
 
-    protected string GetPropertyName(object request)
+    protected static string GetPropertyName(object request)
     {
         return (request as PropertyInfo)?.Name ?? string.Empty;
     }

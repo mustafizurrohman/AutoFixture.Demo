@@ -11,13 +11,13 @@ public class Person
 
     public string FirstName { get; init; } 
     public string LastName { get; init; }
-    public string Email { get; init; }
-    public string PhoneNumber { get; init; }
-    public DateTime DateOfBirth { get; init; }
+    //public string Email { get; init; }
+    //public string PhoneNumber { get; init; }
+    //public DateTime DateOfBirth { get; init; }
 
     public string FullName => FirstName + " " + LastName;
     
-    public int AgeInYears => Now.Year - DateOfBirth.Year;
+    //public int AgeInYears => Now.Year - DateOfBirth.Year;
 
     public Person(string firstName, string lastName, string email, string phoneNumber, DateTime dateOfBirth)
     {
@@ -26,14 +26,14 @@ public class Person
         LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
         
         // Email = (new MailAddress(email)).Address;
-        Email = (new MailAddress(FirstName + "." + LastName + "@gmail.com")).Address;
+        //Email = (new MailAddress(FirstName + "." + LastName + "@gmail.com")).Address;
 
-        PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));  
+        //PhoneNumber = phoneNumber ?? throw new ArgumentNullException(nameof(phoneNumber));  
 
         //if (dateOfBirth > Now)
         //    throw new ArgumentException($"{nameof(DateOfBirth)} must be in the past");
          
-        DateOfBirth = dateOfBirth;
+        //DateOfBirth = dateOfBirth;
 
     }
 }

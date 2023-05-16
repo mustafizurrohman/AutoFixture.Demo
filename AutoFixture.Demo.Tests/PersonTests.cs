@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Customizations.Customizations;
+﻿using AutoFixture.Demo.Core.ExtensionMethods;
+using AutoFixture.Demo.Customizations.Customizations;
 
 namespace AutoFixture.Demo.Tests;
 
@@ -17,12 +18,14 @@ public class PersonTests
 
         //person.Should().NotBeNull();
 
-        var person = fixture.Create<Person>();
+        var persons = fixture.CreateMany<Person>(100);
+
+        var debug = persons.Select(p => p.FullName).ToFormattedJsonFailSafe();
 
         using (new AssertionScope())
         {
-            person.Should().NotBeNull();
-            person.FullName.Should().Contain(" ");            
+            persons.Should().NotBeNull();
+            persons.Should().AllSatisfy(p => p.FullName.Should().Contain(" "));
         }       
         
     }
