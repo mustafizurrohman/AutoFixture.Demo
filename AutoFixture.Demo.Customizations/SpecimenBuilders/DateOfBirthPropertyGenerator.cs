@@ -5,15 +5,7 @@ public class DateOfBirthPropertyGenerator
 {
     public object Create(object request, ISpecimenContext context)
     {
-        if (!IsStringProperty(context))
-            return new NoSpecimen();
-
-        var propName = GetPropertyName(request);
-
-        var isDobProperty = propName.ContainsIgnoreCultureIgnoreCase("date")
-                            && propName.ContainsIgnoreCultureIgnoreCase("birth");
-
-        if (!isDobProperty)
+        if (!IsDateOfBirthProperty(request))
             return new NoSpecimen();
 
         var randomTest = new Random();

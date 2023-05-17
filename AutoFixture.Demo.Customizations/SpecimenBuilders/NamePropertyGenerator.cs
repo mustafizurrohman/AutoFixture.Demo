@@ -7,24 +7,13 @@ public class NamePropertyGenerator
 {    
     public object Create(object request, ISpecimenContext context)
     {
-        if (request is not PropertyInfo propertyInfo)
-            return new NoSpecimen();
-
-        var isStringProperty = propertyInfo.PropertyType == typeof(string);
-
-        if (!isStringProperty) 
-            return new NoSpecimen();
-        
-        if (propertyInfo.Name.Contains("firstName", StringComparison.InvariantCultureIgnoreCase))
+        if (IsFirstNameProperty(request))
             return Faker.Name.FirstName();
         
-        if (propertyInfo.Name.Contains("lastName", StringComparison.InvariantCultureIgnoreCase))
+        if (IsLastNameProperty(request))
             return Faker.Name.LastName();
         
-        //if (propertyInfo.Name.Contains("name", StringComparison.InvariantCultureIgnoreCase))
-        //    return Faker.Name.FirstName() + " " + Faker.Name.LastName();
-        
-        return new OmitSpecimen();
+        return new NoSpecimen();
 
     }
 }

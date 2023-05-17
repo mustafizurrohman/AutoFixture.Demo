@@ -5,19 +5,9 @@ public class PhoneNumberPropertyGenerator
 {
     public object Create(object request, ISpecimenContext context)
     {
-        if (!IsStringProperty(context))
+        if (!IsPhoneNumberProperty(request))
             return new NoSpecimen();
 
-        var propName = GetPropertyName(request);
-
-        var isPhoneNumberProperty = propName.Contains("phone", StringComparison.InvariantCultureIgnoreCase)
-                                    && propName.Contains("number", StringComparison.InvariantCultureIgnoreCase);
-
-        if (!isPhoneNumberProperty)
-            return new NoSpecimen();
-
-        return "040 " + Enumerable.Range(1, 9)
-            .OrderBy(_ => Guid.NewGuid())
-            .Take(6);
+        return Faker.Phone.PhoneNumber();
     }
 }
