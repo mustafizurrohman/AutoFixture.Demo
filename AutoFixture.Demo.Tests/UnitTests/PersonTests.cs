@@ -3,6 +3,7 @@
 public class PersonTests
 {
     [Theory]
+    // [AutoDataCustom]
     [AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
