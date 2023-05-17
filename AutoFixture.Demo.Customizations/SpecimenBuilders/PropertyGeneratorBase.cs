@@ -11,7 +11,7 @@ public abstract class PropertyGeneratorBase
         Faker = new Faker(localization);
     }
 
-    protected static bool IsStringProperty(object request)
+    private static bool IsStringProperty(object request)
     {
         if (request is not PropertyInfo propertyInfo)
             return false;
@@ -20,7 +20,7 @@ public abstract class PropertyGeneratorBase
 
     }
 
-    protected static string GetPropertyName(object request)
+    private static string GetPropertyName(object request)
     {
         return (request as PropertyInfo)?.Name ?? string.Empty;
     }
@@ -77,7 +77,7 @@ public abstract class PropertyGeneratorBase
         var propertyName = GetPropertyName(request);
 
         return propertyName.ContainsIgnoreCultureIgnoreCase("date")
-                            && propertyName.ContainsIgnoreCultureIgnoreCase("birth");
+               && propertyName.ContainsIgnoreCultureIgnoreCase("birth");
     }
 
     protected static bool IsStreetProperty(object request)

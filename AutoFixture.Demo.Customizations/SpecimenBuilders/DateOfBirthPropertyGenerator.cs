@@ -9,8 +9,10 @@ internal class DateOfBirthPropertyGenerator
             return new NoSpecimen();
 
         var now = DateTime.Now;
-        
-        return Faker.Date.Between(now.AddYears(-100), now.AddDays(-1));
+
+        var generatedDateTime = Faker.Date.Between(now.AddYears(-100), now.AddDays(-1));
+            
+        return generatedDateTime;
     }
 }
 

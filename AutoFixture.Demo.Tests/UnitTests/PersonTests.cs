@@ -20,5 +20,22 @@ public class PersonTests
 
     }
 
+    [Theory]
+    [AutoDataCustom]
+    public void VerifyThatCreatedOnWasCorrectlySet()
+    {
+        var now = DateTime.Now;
+
+        var fixture = new Fixture();
+        fixture.Customize(new AllCustomization());
+
+        var persons = fixture.Build<Person>()
+            .With(p => p.CreatedOn, now)
+            .CreateMany();
+        
+        persons.Should()
+            .AllSatisfy(p => p.CreatedOn.Should().BeOnOrBefore(DateTime.Now));
+    }
+
 
 }
