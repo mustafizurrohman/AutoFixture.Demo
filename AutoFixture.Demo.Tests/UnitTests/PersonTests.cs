@@ -20,8 +20,7 @@ public class PersonTests
 
     }
 
-    [Theory]
-    [AutoDataCustom]
+    [Fact]
     public void VerifyThatCreatedOnWasCorrectlySet()
     {
         var now = DateTime.Now;
