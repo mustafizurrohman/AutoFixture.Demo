@@ -8,15 +8,29 @@ namespace AutoFixture.Demo.Models;
 /// </summary>
 public class Person
 {
-    public string FirstName { get; init; } 
-    public string LastName { get; init; }
+    private static DateTime Now => DateTime.Now;
+
+    public string FirstName { get; set; } 
+    public string LastName { get; set; }
+
+    public DateTime DateOfBirth { get; set; }
     
     public string FullName => FirstName + " " + LastName;
-    
-    public Person(string firstName, string lastName)
+
+    protected Person()
+    {
+
+    }
+
+    public Person(string firstName, string lastName, DateTime dateOfBirth)
     {
         FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
         LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
+        
+        //if (dateOfBirth > Now)
+        //    throw new ArgumentException("Date of birth must be in the past", nameof(dateOfBirth));
+
+        DateOfBirth = dateOfBirth;
     }
 
     public override string ToString()

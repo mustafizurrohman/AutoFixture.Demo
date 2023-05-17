@@ -19,7 +19,10 @@ public class AllCustomization : CompositeCustomization
 public class PersonCustomization : CompositeCustomization
 {
     public PersonCustomization()
-        : base(new NameCustomization()) 
+        : base(
+            new NameCustomization(),
+            new DobCustomization()
+        ) 
     {
 
     }
