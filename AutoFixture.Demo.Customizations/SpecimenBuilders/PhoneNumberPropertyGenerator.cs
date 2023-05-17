@@ -14,9 +14,9 @@ public class PhoneNumberPropertyGenerator
                                     && propName.Contains("number", StringComparison.InvariantCultureIgnoreCase);
 
         if (!isPhoneNumberProperty)
-            return new OmitSpecimen();
+            return new NoSpecimen();
 
-        return "040 " + Enumerable.Range(0, 9)
+        return "040 " + Enumerable.Range(1, 9)
             .OrderBy(_ => Guid.NewGuid())
             .Take(6);
     }

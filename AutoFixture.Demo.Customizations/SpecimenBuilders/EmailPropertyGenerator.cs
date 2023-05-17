@@ -16,7 +16,7 @@ public class EmailPropertyGenerator
             return new NoSpecimen();
 
         if (propertyInfo.Name.Contains("Email", StringComparison.InvariantCultureIgnoreCase))
-            return new OmitSpecimen();
+            return Faker.Internet.Email();
 
         return new NoSpecimen();
     }

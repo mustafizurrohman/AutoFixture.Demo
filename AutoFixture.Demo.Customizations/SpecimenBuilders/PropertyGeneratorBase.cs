@@ -4,7 +4,7 @@ namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
 public abstract class PropertyGeneratorBase
 {
-    public Faker Faker { get; }
+    protected Faker Faker { get; }
 
     protected PropertyGeneratorBase(string localization = "de")
     {
