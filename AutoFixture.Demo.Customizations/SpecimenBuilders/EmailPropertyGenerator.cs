@@ -2,7 +2,7 @@
 
 namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-public class EmailPropertyGenerator 
+internal class EmailPropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {    
     public object Create(object request, ISpecimenContext context)

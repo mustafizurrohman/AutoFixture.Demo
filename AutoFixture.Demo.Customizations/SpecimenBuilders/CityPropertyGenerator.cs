@@ -1,13 +1,15 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class PhoneNumberPropertyGenerator
+internal class CityPropertyGenerator
     : PropertyGeneratorBase, ISpecimenBuilder
 {
     public object Create(object request, ISpecimenContext context)
     {
-        if (!IsPhoneNumberProperty(request))
+        if (!IsCityProperty(request))
             return new NoSpecimen();
 
-        return Faker.Phone.PhoneNumber();
+        return Faker.Address.City();
     }
 }
+
+

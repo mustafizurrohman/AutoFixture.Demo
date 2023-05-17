@@ -79,5 +79,25 @@ public abstract class PropertyGeneratorBase
         return propertyName.ContainsIgnoreCultureIgnoreCase("date")
                             && propertyName.ContainsIgnoreCultureIgnoreCase("birth");
     }
+
+    protected static bool IsStreetProperty(object request)
+    {
+        if (!IsStringProperty(request))
+            return false;
+
+        var propertyName = GetPropertyName(request);
+
+        return propertyName.ContainsIgnoreCultureIgnoreCase("street");
+    }
+
+    protected static bool IsCityProperty(object request)
+    {
+        if (!IsStringProperty(request))
+            return false;
+
+        var propertyName = GetPropertyName(request);
+
+        return propertyName.ContainsIgnoreCultureIgnoreCase("city");
+    }
 }
 

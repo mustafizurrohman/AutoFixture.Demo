@@ -1,6 +1,6 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-public class DateOfBirthPropertyGenerator 
+internal class DateOfBirthPropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {
     public object Create(object request, ISpecimenContext context)

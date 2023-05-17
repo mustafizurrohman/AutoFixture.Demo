@@ -42,3 +42,22 @@ public class PhoneNumberCustomization : ICustomization
     }
 }
 
+public class StreetCustomization : ICustomization
+{
+    public void Customize(IFixture fixture)
+    {
+        ArgumentNullException.ThrowIfNull(fixture);
+
+        fixture.Customizations.Add(new StreetPropertyGenerator());
+    }
+}
+
+public class CityCustomization : ICustomization
+{
+    public void Customize(IFixture fixture)
+    {
+        ArgumentNullException.ThrowIfNull(fixture);
+
+        fixture.Customizations.Add(new CityPropertyGenerator());
+    }
+}

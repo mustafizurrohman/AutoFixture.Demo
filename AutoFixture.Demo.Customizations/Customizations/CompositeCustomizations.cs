@@ -7,7 +7,9 @@ public class AllCustomization : CompositeCustomization
               new NameCustomization(),
               new EmailCustomization(),
               new DobCustomization(),
-              new PhoneNumberCustomization()
+              new PhoneNumberCustomization(),
+              new StreetCustomization(),
+              new CityCustomization()
         )
     {
 
@@ -28,7 +30,9 @@ public class ContactCustomization : CompositeCustomization
     public ContactCustomization()
         : base(
             new EmailCustomization(),
-            new PhoneNumberCustomization()
+            new PhoneNumberCustomization(),
+            new StreetCustomization(),
+            new CityCustomization()
         )
     {
 

@@ -12,6 +12,8 @@ public class Contact
 {
     //public string Email { get; init; }
     public string PhoneNumber { get; init; }
+    public string Street { get; init; }
+    public string City { get; init; }
 
     public Contact(string email, string phone)
     {

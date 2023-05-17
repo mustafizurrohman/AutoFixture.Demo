@@ -2,7 +2,7 @@
 
 namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-public class NamePropertyGenerator 
+internal class NamePropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {    
     public object Create(object request, ISpecimenContext context)
