@@ -3,6 +3,14 @@ using AutoFixture.Xunit2;
 
 namespace AutoFixture.Demo.Customizations.Attributes;
 
+public class AutoDataCustomAttribute : AutoDataAttribute
+{
+    public AutoDataCustomAttribute()
+        : base(() => new Fixture().Customize(new AllCustomization()))
+    {
+
+    }
+}
 
 public class AutoDataPersonAttribute : AutoDataAttribute
 {

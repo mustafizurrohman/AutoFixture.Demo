@@ -1,5 +1,19 @@
 ﻿namespace AutoFixture.Demo.Customizations.Customizations;
 
+public class AllCustomization : CompositeCustomization
+{
+    public AllCustomization()
+        : base(
+              new NameCustomization(),
+              new EmailCustomization(),
+              new DobCustomization(),
+              new PhoneNumberCustomization()
+        )
+    {
+
+    }
+}
+
 public class PersonCustomization : CompositeCustomization
 {
     public PersonCustomization()
