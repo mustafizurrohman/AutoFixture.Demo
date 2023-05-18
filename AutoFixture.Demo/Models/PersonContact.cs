@@ -1,4 +1,5 @@
-﻿namespace AutoFixture.Demo.Models;
+﻿// ReSharper disable ClassNeverInstantiated.Global
+namespace AutoFixture.Demo.Models;
 
 public class PersonContact
 {

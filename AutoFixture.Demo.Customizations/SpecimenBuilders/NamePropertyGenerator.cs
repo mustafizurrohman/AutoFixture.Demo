@@ -1,6 +1,4 @@
-﻿using System.Reflection;
-
-namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
+﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
 internal class NamePropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder

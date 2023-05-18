@@ -1,6 +1,5 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ClassNeverInstantiated.Global
-using System.Net.Mail;
 
 namespace AutoFixture.Demo.Models;
 
@@ -10,22 +9,37 @@ namespace AutoFixture.Demo.Models;
 /// </summary>
 public class Contact
 {
-    //public string Email { get; init; }
+    // TODO: Uncomment/comment and show demo
+    // TODO: Generate Email based on Person.FirstName and Person.LastName
+    public string Email { get; init; }
     public string PhoneNumber { get; init; }
     public string Street { get; init; }
     public string City { get; init; }
 
-    public Contact(string email, string phone)
+    public Contact(string phone, string street, string city, string email)
     {
-        //Email = new MailAddress(email).Address ?? throw new ArgumentNullException(nameof(email));
         PhoneNumber = phone ?? throw new ArgumentNullException(nameof(phone));
+        Street = street ?? throw new ArgumentNullException(nameof(street));
+        City = city ?? throw new ArgumentNullException(nameof(city));
+        Email = email ?? throw new ArgumentNullException(nameof(email));
     }
 
-    //public override string ToString()
-    //{
-    //    return "Email: " + Email
-    //                     + Environment.NewLine
-    //                     + "Phone: " + PhoneNumber;
-    //}
+    public override string ToString()
+    {
+        string PrintAddress()
+        {
+            return Street + ", " + City
+                   + Environment.NewLine
+                   + "Phone: " + PhoneNumber;
+        }
+
+        string PrintEmail()
+        {
+            return "Email: " + Email;
+        }
+
+        return PrintAddress()
+               + Environment.NewLine + PrintEmail();
+    }
 }
 
