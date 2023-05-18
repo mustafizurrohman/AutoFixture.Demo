@@ -3,6 +3,11 @@
 internal class PhoneNumberPropertyGenerator
     : PropertyGeneratorBase, ISpecimenBuilder
 {
+    public PhoneNumberPropertyGenerator(string localization = "de")
+        : base(localization)
+    {
+    }
+
     public object Create(object request, ISpecimenContext context)
     {
         if (!IsPhoneNumberProperty(request))

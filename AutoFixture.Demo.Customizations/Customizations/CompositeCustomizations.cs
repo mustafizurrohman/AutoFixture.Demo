@@ -2,26 +2,25 @@
 
 public class AllCustomization : CompositeCustomization
 {
-    public AllCustomization()
+    public AllCustomization(string localization = "de")
         : base(
-              new NameCustomization(),
-              new EmailCustomization(),
-              new DobCustomization(),
-              new PhoneNumberCustomization(),
-              new StreetCustomization(),
-              new CityCustomization()
+              new NameCustomization(localization),
+              new EmailCustomization(localization),
+              new DobCustomization(localization),
+              new PhoneNumberCustomization(localization),
+              new StreetCustomization(localization),
+              new CityCustomization(localization)
         )
     {
-
     }
 }
 
 public class PersonCustomization : CompositeCustomization
 {
-    public PersonCustomization()
+    public PersonCustomization(string localization = "de")
         : base(
-            new NameCustomization(),
-            new DobCustomization()
+            new NameCustomization(localization),
+            new DobCustomization(localization)
         ) 
     {
 
@@ -30,12 +29,12 @@ public class PersonCustomization : CompositeCustomization
 
 public class ContactCustomization : CompositeCustomization
 {
-    public ContactCustomization()
+    public ContactCustomization(string localization = "de")
         : base(
-            new EmailCustomization(),
-            new PhoneNumberCustomization(),
-            new StreetCustomization(),
-            new CityCustomization()
+            new EmailCustomization(localization),
+            new PhoneNumberCustomization(localization),
+            new StreetCustomization(localization),
+            new CityCustomization(localization)
         )
     {
 

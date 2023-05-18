@@ -5,8 +5,8 @@ namespace AutoFixture.Demo.Customizations.Attributes;
 
 public class AutoDataCustomAttribute : AutoDataAttribute
 {
-    public AutoDataCustomAttribute()
-        : base(() => new Fixture().Customize(new AllCustomization()))
+    public AutoDataCustomAttribute(string localization = "de")
+        : base(() => new Fixture().Customize(new AllCustomization(localization)))
     {
 
     }
@@ -14,8 +14,8 @@ public class AutoDataCustomAttribute : AutoDataAttribute
 
 public class AutoDataPersonAttribute : AutoDataAttribute
 {
-    public AutoDataPersonAttribute()
-        : base(() => new Fixture().Customize(new PersonCustomization()))
+    public AutoDataPersonAttribute(string localization = "de")
+        : base(() => new Fixture().Customize(new PersonCustomization(localization)))
     {
 
     }
@@ -23,8 +23,8 @@ public class AutoDataPersonAttribute : AutoDataAttribute
 
 public class AutoDataContactAttribute : AutoDataAttribute
 {
-    public AutoDataContactAttribute()
-        : base(() => new Fixture().Customize(new ContactCustomization()))
+    public AutoDataContactAttribute(string localization = "de")
+        : base(() => new Fixture().Customize(new ContactCustomization(localization)))
     {
 
     }

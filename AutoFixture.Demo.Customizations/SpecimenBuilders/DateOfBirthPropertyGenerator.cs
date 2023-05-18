@@ -3,6 +3,11 @@
 internal class DateOfBirthPropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {
+    public DateOfBirthPropertyGenerator(string localization = "de")
+        : base(localization)
+    {
+    }
+
     public object Create(object request, ISpecimenContext context)
     {
         if (!IsDateOfBirthProperty(request))

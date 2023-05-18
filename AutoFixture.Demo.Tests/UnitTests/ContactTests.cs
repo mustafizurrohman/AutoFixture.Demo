@@ -3,7 +3,7 @@
 public class ContactTests
 {
     [Theory]
-    [AutoDataCustom]
+    [AutoDataCustom("fr")]
     // [AutoDataContact]
     public void VerifyThatContactsAreCorrectlyGenerated(List<Contact> contacts)
     {

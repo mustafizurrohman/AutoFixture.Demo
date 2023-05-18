@@ -2,7 +2,12 @@
 
 internal class NamePropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
-{    
+{
+    public NamePropertyGenerator(string localization = "de") 
+        : base(localization)
+    {
+    }
+
     public object Create(object request, ISpecimenContext context)
     {
         if (IsFirstNameProperty(request))

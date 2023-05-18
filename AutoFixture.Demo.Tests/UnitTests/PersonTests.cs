@@ -49,7 +49,7 @@ public class PersonTests
     {
         // ARRANGE
         var now = DateTime.Now;
-        var oneWeekAgo = now.AddDays(-7);
+        var oneWeekAgo = now.AddDays(7);
 
         var fixture = new Fixture();
         fixture.Customize(new AllCustomization());

@@ -1,5 +1,8 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ClassNeverInstantiated.Global
+
+using Humanizer;
+
 namespace AutoFixture.Demo.Models; 
 
 /// <summary>
@@ -18,6 +21,8 @@ public class Person
     
     public string FullName => FirstName + " " + LastName;
 
+    // public string Age => GetAgeAsString();
+
     public Person(string firstName, string lastName, DateTime dateOfBirth)
     {
         FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
@@ -25,13 +30,22 @@ public class Person
         DateOfBirth = dateOfBirth;
     }
 
-    // TODO: Unit test for this
     public void UpdateDateOfBirth(DateTime updatedDob)
     {
-        if (updatedDob < CreatedOn)
-            throw new ArgumentException("Person must be created before the entry was created");
+        if (updatedDob > CreatedOn)
+            throw new ArgumentException("Person must have Date of birth before the entry was created");
+
+        if (updatedDob > Now)
+            throw new ArgumentException("Person cannot have Date of birth in the future");
 
         DateOfBirth = updatedDob;
+    }
+
+    public string GetAgeAsString()
+    {
+        var ageInMilliseconds = (Now - DateOfBirth).Milliseconds;
+
+        return TimeSpan.FromMilliseconds(ageInMilliseconds).Humanize(precision: 2);
     }
 
     public override string ToString()
