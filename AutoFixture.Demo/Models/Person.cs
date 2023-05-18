@@ -2,6 +2,7 @@
 // ReSharper disable ClassNeverInstantiated.Global
 
 using Humanizer;
+using Humanizer.Localisation;
 
 namespace AutoFixture.Demo.Models; 
 
@@ -21,7 +22,7 @@ public class Person
     
     public string FullName => FirstName + " " + LastName;
 
-    // public string Age => GetAgeAsString();
+    public string Age => GetAgeAsString();
 
     public Person(string firstName, string lastName, DateTime dateOfBirth)
     {
@@ -43,9 +44,9 @@ public class Person
 
     public string GetAgeAsString()
     {
-        var ageInMilliseconds = (Now - DateOfBirth).Milliseconds;
+        var ageInMilliseconds = (Now - DateOfBirth).TotalMilliseconds;
 
-        return TimeSpan.FromMilliseconds(ageInMilliseconds).Humanize(precision: 2);
+        return TimeSpan.FromMilliseconds(ageInMilliseconds).Humanize(maxUnit: TimeUnit.Year, minUnit: TimeUnit.Day, precision: 3);
     }
 
     public override string ToString()

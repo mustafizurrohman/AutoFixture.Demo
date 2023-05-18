@@ -17,6 +17,9 @@ public class PersonTests
             persons
                 .Should()
                 .AllSatisfy(p => p.FullName.Should().Contain(" "));
+
+            persons.Should()
+                .AllSatisfy(p => p.Age.Should().NotBeNullOrWhiteSpace());
         }
 
     }
