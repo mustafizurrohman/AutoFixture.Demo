@@ -7,6 +7,7 @@ public class PersonTests
     [AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
+        // ASSERT
         using (new AssertionScope())
         {
             persons
@@ -23,16 +24,20 @@ public class PersonTests
     [Fact]
     public void VerifyThatCreatedOnWasCorrectlySet()
     {
+        // ARRANGE
         var now = DateTime.Now;
 
         var fixture = new Fixture();
         fixture.Customize(new AllCustomization());
 
         // Set a fixed value of CreatedOn and use the rules in AllCustomization
-        var persons = fixture.Build<Person>()
-            .With(p => p.CreatedOn, now)
-            .CreateMany();
+        var personBuilder = fixture.Build<Person>()
+            .With(p => p.CreatedOn, now);
+            
+        // ACT
+        var persons = personBuilder.CreateMany();
 
+        // ASSERT
         persons.Select(p => p.CreatedOn)
             .Distinct()
             .Should()
@@ -42,7 +47,7 @@ public class PersonTests
     [Fact]
     public void VerifyThatDateIsValidatedOnUpdateDateOfBirthMethod()
     {
-        // Arrange
+        // ARRANGE
         var now = DateTime.Now;
         var oneWeekAgo = now.AddDays(-7);
 
@@ -54,10 +59,10 @@ public class PersonTests
             .With(p => p.CreatedOn, now)
             .Create();
 
-        // Act
+        // ACT
         Action action = () => person.UpdateDateOfBirth(oneWeekAgo);
 
-        // Assert
+        // ASSERT
         action.Should()
             .ThrowExactly<ArgumentException>();
 
