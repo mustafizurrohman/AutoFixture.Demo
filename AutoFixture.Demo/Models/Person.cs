@@ -23,6 +23,9 @@ public class Person
 
     public string Age => DateOfBirth.GetTimeDiffAsString();
 
+    // TODO: Uncomment and show demo
+    // public string RandomData { get; set; }
+
     public Person(string firstName, string lastName, DateTime dateOfBirth)
     {
         FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));

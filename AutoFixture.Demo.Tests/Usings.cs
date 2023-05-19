@@ -1,5 +1,8 @@
 global using Xunit;
+global using Xunit.Sdk;
+global using Xunit.Abstractions;
 
+global using AutoFixture.Xunit2;
 global using AutoFixture.Demo.Customizations.SpecimenBuilders;
 global using AutoFixture.Demo.Models;
 global using FluentAssertions;

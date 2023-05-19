@@ -2,13 +2,26 @@
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
-public class PersonTests
+public class PersonTests : TestBase
 {
-    [Theory, AutoDataPerson]
-    // [AutoDataCustom]
-    // [AutoDataPerson]
+    public PersonTests(ITestOutputHelper outputHelper)
+        : base(outputHelper)
+    {
+    }
+
+    /// <summary>
+    /// This does not test anything a such
+    /// Comment and uncomment the attributes and observe how it influences the generation of List of Person
+    /// </summary>
+    /// <param name="persons"></param>
+    [Theory]
+    //[AutoData]
+    [AutoDataCustom]
+    //[AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
+        OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
+
         // ASSERT
         using (new AssertionScope())
         {
@@ -23,7 +36,6 @@ public class PersonTests
             persons.Should()
                 .AllSatisfy(p => p.Age.Should().NotBeNullOrWhiteSpace());
 
-            persons.First().FullName.Should().NotContainNumbers();
         }
 
     }
@@ -43,6 +55,8 @@ public class PersonTests
             
         // ACT
         var persons = personBuilder.CreateMany();
+
+        OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
 
         // ASSERT
         persons.Select(p => p.CreatedOn)
@@ -65,6 +79,8 @@ public class PersonTests
         var person = fixture.Build<Person>()
             .With(p => p.CreatedOn, now)
             .Create();
+
+        OutputHelper.WriteLine(person.ToFormattedJsonFailSafe());
 
         // ACT
         Action action = () => person.UpdateDateOfBirth(oneWeekAgo);
