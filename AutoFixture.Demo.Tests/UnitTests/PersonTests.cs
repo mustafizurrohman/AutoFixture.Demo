@@ -1,12 +1,10 @@
-﻿using AutoFixture.Demo.Core.ExtensionMethods;
-
-namespace AutoFixture.Demo.Tests.UnitTests;
+﻿namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class PersonTests
 {
-    [Theory]
+    [Theory, AutoDataPerson]
     // [AutoDataCustom]
-    [AutoDataPerson]
+    // [AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
         // ASSERT

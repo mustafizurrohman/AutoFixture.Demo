@@ -1,6 +1,7 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ClassNeverInstantiated.Global
 
+using AutoFixture.Demo.Core.ExtensionMethods;
 using Humanizer;
 using Humanizer.Localisation;
 
@@ -22,7 +23,7 @@ public class Person
     
     public string FullName => FirstName + " " + LastName;
 
-    public string Age => GetAgeAsString();
+    public string Age => DateOfBirth.GetTimeDiffAsString();
 
     public Person(string firstName, string lastName, DateTime dateOfBirth)
     {
@@ -41,14 +42,7 @@ public class Person
 
         DateOfBirth = updatedDob;
     }
-
-    public string GetAgeAsString()
-    {
-        var ageInMilliseconds = (Now - DateOfBirth).TotalMilliseconds;
-
-        return TimeSpan.FromMilliseconds(ageInMilliseconds).Humanize(maxUnit: TimeUnit.Year, minUnit: TimeUnit.Day, precision: 3);
-    }
-
+    
     public override string ToString()
     {
         return FullName;

@@ -4,38 +4,37 @@ using FluentAssertions.Primitives;
 
 namespace AutoFixture.Demo.Core.ExtensionMethods;
 
-/*
 public static class FluentAssertionExtensions
 {
-    public static StringAssertions Should(this string instance)
+    public static DirectoryInfoAssertions Should(this DirectoryInfo instance)
     {
-        return new StringAssertions(instance);
+        return new DirectoryInfoAssertions(instance);
     }
 }
 
-public class StringAssertions : ReferenceTypeAssertions<string, StringAssertions>
+public class DirectoryInfoAssertions :
+    ReferenceTypeAssertions<DirectoryInfo, DirectoryInfoAssertions>
 {
-    public StringAssertions(string instance) : base(instance)
+    public DirectoryInfoAssertions(DirectoryInfo instance)
+        : base(instance)
     {
     }
-    
-    protected override string Identifier => "StringAssertion";
 
-    
-    public AndConstraint<string> ContainNoNumbers(string instance, string because = "", params object[] becauseArgs)
+    protected override string Identifier => "directory";
+
+    public AndConstraint<DirectoryInfoAssertions> ContainFile(
+        string filename, string because = "", params object[] becauseArgs)
     {
-        // https://fluentassertions.com/extensibility/#building-your-own-extensions
-        // https://stackoverflow.com/questions/59105851/how-do-i-write-customassertion-using-fluentassertions
         Execute.Assertion
             .BecauseOf(because, becauseArgs)
-            .ForCondition(!string.IsNullOrEmpty(instance))
-            .FailWith("Input cannot be null or empty or just white spaces")
+            .ForCondition(!string.IsNullOrEmpty(filename))
+            .FailWith("You can't assert a file exist if you don't pass a proper name")
             .Then
-            .Given(() => instance)
-            .ForCondition(input => input.Any(char.IsDigit))
-            .FailWith($"Expected {1} to contain no numbers, but found {1}", _ => instance, input => input.Where(char.IsDigit));
+            .Given(() => Subject.GetFiles())
+            .ForCondition(files => files.Any(fileInfo => fileInfo.Name.Equals(filename)))
+            .FailWith("Expected {context:directory} to contain {0}{reason}, but found {1}.",
+                _ => filename, files => files.Select(file => file.Name));
 
-        return new AndConstraint<string>(this);
-    } 
+        return new AndConstraint<DirectoryInfoAssertions>(this);
+    }
 }
-*/
