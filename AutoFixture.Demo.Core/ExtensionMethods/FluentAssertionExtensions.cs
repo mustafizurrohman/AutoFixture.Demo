@@ -5,7 +5,7 @@ using FluentAssertions.Primitives;
 namespace AutoFixture.Demo.Core.ExtensionMethods;
 
 /*
-private static class FluentAssertionExtensions
+public static class FluentAssertionExtensions
 {
     public static StringAssertions Should(this string instance)
     {
@@ -13,7 +13,7 @@ private static class FluentAssertionExtensions
     }
 }
 
-private class StringAssertions : ReferenceTypeAssertions<string, StringAssertions>
+public class StringAssertions : ReferenceTypeAssertions<string, StringAssertions>
 {
     public StringAssertions(string instance) : base(instance)
     {
@@ -35,7 +35,7 @@ private class StringAssertions : ReferenceTypeAssertions<string, StringAssertion
             .ForCondition(input => input.Any(char.IsDigit))
             .FailWith($"Expected {1} to contain no numbers, but found {1}", _ => instance, input => input.Where(char.IsDigit));
 
-        return new AndConstraint<string>(instance);
+        return new AndConstraint<string>(this);
     } 
 }
 */

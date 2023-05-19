@@ -1,4 +1,6 @@
-﻿namespace AutoFixture.Demo.Tests.UnitTests;
+﻿using AutoFixture.Demo.Core.ExtensionMethods;
+
+namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class PersonTests
 {
