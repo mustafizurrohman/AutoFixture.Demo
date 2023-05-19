@@ -1,4 +1,6 @@
-﻿namespace AutoFixture.Demo.Tests.UnitTests;
+﻿using AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
+
+namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class PersonTests
 {
@@ -20,6 +22,8 @@ public class PersonTests
 
             persons.Should()
                 .AllSatisfy(p => p.Age.Should().NotBeNullOrWhiteSpace());
+
+            persons.First().FullName.Should().NotContainNumbers();
         }
 
     }

@@ -2,8 +2,6 @@
 // ReSharper disable ClassNeverInstantiated.Global
 
 using AutoFixture.Demo.Core.ExtensionMethods;
-using Humanizer;
-using Humanizer.Localisation;
 
 namespace AutoFixture.Demo.Models; 
 

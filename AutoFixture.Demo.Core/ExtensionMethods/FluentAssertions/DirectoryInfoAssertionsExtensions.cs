@@ -1,10 +1,10 @@
-﻿using FluentAssertions;
-using FluentAssertions.Execution;
+﻿using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
+using FluentAssertions;
 
-namespace AutoFixture.Demo.Core.ExtensionMethods;
+namespace AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
 
-public static class FluentAssertionExtensions
+public static class DirectoryInfoAssertionsExtensions
 {
     public static DirectoryInfoAssertions Should(this DirectoryInfo instance)
     {
