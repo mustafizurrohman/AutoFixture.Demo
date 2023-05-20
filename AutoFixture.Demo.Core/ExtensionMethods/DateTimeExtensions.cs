@@ -13,4 +13,3 @@ public static class DateTimeExtensions
             .Humanize(maxUnit: TimeUnit.Year, minUnit: TimeUnit.Day, precision: 3);
     }
 }
-

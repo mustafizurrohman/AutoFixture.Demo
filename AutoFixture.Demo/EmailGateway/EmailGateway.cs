@@ -10,4 +10,3 @@ public class EmailGateway : IEmailGateway
         Debug.WriteLine("Sending email to: " + message.ToAddress);
     }
 }
-

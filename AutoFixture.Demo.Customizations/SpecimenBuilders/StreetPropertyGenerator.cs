@@ -16,4 +16,3 @@ internal class StreetPropertyGenerator
         return Faker.Address.StreetAddress();
     }
 }
-

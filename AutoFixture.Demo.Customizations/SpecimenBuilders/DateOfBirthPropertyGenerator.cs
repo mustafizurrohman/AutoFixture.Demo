@@ -20,5 +20,3 @@ internal class DateOfBirthPropertyGenerator
         return generatedDateTime;
     }
 }
-
- 

@@ -16,5 +16,3 @@ internal class CityPropertyGenerator
         return Faker.Address.City();
     }
 }
-
-

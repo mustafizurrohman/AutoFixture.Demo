@@ -42,4 +42,3 @@ public class Contact
                + Environment.NewLine + PrintEmail();
     }
 }
-

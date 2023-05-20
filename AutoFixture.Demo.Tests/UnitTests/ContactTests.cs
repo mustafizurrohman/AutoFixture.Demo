@@ -76,4 +76,3 @@ public class ContactTests : TestBase
         persons.Should().NotBeNull();
     }
 }
-

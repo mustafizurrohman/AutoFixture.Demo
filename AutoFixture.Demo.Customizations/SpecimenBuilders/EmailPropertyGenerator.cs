@@ -16,4 +16,3 @@ internal class EmailPropertyGenerator
         return new NoSpecimen();
     }
 }
-

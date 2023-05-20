@@ -15,4 +15,3 @@ public abstract class TestBase
         OutputHelper.WriteLine(obj.ToFormattedJsonFailSafe());
     }
 }
-

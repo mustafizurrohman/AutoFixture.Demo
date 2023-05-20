@@ -58,4 +58,3 @@ public class EmailGatewayTests : TestBase
         mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Once());
     }
 }
-

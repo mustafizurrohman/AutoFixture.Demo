@@ -81,7 +81,7 @@ public class PersonTests : TestBase
         OutputHelper.WriteLine(person.ToFormattedJsonFailSafe());
 
         // ACT
-        Action action = () => person.UpdateDateOfBirth(oneWeekAgo);
+        var action = () => person.UpdateDateOfBirth(oneWeekAgo);
 
         // ASSERT
         action.Should()
