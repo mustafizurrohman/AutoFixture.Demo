@@ -1,7 +1,4 @@
-﻿using AutoFixture.Demo.Models;
-using AutoFixture.Xunit2;
-
-namespace AutoFixture.Demo.Tests.UnitTests;
+﻿namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class ContactTests : TestBase
 {

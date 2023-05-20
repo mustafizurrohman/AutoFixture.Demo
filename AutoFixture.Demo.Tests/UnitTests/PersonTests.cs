@@ -1,6 +1,4 @@
-﻿using AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
-
-namespace AutoFixture.Demo.Tests.UnitTests;
+﻿namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class PersonTests : TestBase
 {

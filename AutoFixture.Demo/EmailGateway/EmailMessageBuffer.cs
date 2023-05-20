@@ -15,7 +15,7 @@ public class EmailMessageBuffer
 
     public void SendAll()
     {
-        foreach (var email in _emails)
+        foreach (var email in _emails.ToList())
         {
             Send(email);
             _emails.Remove(email);

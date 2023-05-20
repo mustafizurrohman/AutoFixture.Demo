@@ -1,21 +1,17 @@
 ﻿namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class AllCustomization : CompositeCustomization
+public sealed class AllCustomization : CompositeCustomization
 {
     public AllCustomization(string localization = "de")
         : base(
-              new NameCustomization(localization),
-              new EmailCustomization(localization),
-              new DobCustomization(localization),
-              new PhoneNumberCustomization(localization),
-              new StreetCustomization(localization),
-              new CityCustomization(localization)
+              new PersonCustomization(localization),
+              new ContactCustomization(localization)
         )
     {
     }
 }
 
-public class PersonCustomization : CompositeCustomization
+public sealed class PersonCustomization : CompositeCustomization
 {
     public PersonCustomization(string localization = "de")
         : base(
@@ -27,7 +23,7 @@ public class PersonCustomization : CompositeCustomization
     }
 }
 
-public class ContactCustomization : CompositeCustomization
+public sealed class ContactCustomization : CompositeCustomization
 {
     public ContactCustomization(string localization = "de")
         : base(

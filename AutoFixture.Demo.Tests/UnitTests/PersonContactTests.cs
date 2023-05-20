@@ -13,7 +13,8 @@ public class PersonContactTests : TestBase
     /// </summary>
     /// <param name="personContacts"></param>
     [Theory]
-    [AutoDataCustom]
+    // [AutoDataCustom]
+    [AutoDataPerson]
     public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1(List<PersonContact> personContacts)
     {
         PrintObject(personContacts);
