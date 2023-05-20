@@ -34,8 +34,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("phone")
-               && propertyName.ContainsIgnoreCultureIgnoreCase("number");
+        return propertyName.ContainStrings("phone", "number");
     }
 
     protected static bool IsEmailProperty(object request)
@@ -45,7 +44,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("email");
+        return propertyName.ContainStrings("email");
     }
 
     protected static bool IsFirstNameProperty(object request)
@@ -55,7 +54,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("firstName");
+        return propertyName.ContainStrings("firstName");
     }
 
     protected static bool IsLastNameProperty(object request)
@@ -65,7 +64,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("lastName");
+        return propertyName.ContainStrings("lastName");
     }
 
     protected static bool IsDateOfBirthProperty(object request)
@@ -78,8 +77,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("date")
-               && propertyName.ContainsIgnoreCultureIgnoreCase("birth");
+        return propertyName.ContainStrings("date", "birth");
     }
 
     protected static bool IsStreetProperty(object request)
@@ -89,7 +87,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("street");
+        return propertyName.ContainStrings("street");
     }
 
     protected static bool IsCityProperty(object request)
@@ -99,6 +97,6 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainsIgnoreCultureIgnoreCase("city");
+        return propertyName.ContainStrings("city");
     }
 }
