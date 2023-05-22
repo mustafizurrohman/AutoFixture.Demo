@@ -11,4 +11,11 @@ public class PersonContact
         Person = person;
         Contact = contact;
     }
+
+    public override string ToString()
+    {
+        return Person.ToString() 
+            + Environment.NewLine
+            + Contact.ToString();
+    }
 }

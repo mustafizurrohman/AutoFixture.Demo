@@ -13,13 +13,17 @@ public abstract class PropertyGeneratorBase
         Faker = new Faker(Localization);
     }
 
-    private static bool IsStringProperty(object request)
+    private static bool IsPropertyOfType(object request, Type type)
     {
-        if (request is not PropertyInfo propertyInfo)
+        if (request is not PropertyInfo propertyInfo) 
             return false;
 
-        return propertyInfo.PropertyType == typeof(string);
+        return propertyInfo.PropertyType == type;
+    }
 
+    private static bool IsStringProperty(object request)
+    {
+        return IsPropertyOfType(request, typeof(string));
     }
 
     private static string GetPropertyName(object request)
@@ -68,11 +72,8 @@ public abstract class PropertyGeneratorBase
     }
 
     protected static bool IsDateOfBirthProperty(object request)
-    {
-        if (request is not PropertyInfo propertyInfo)
-            return false;
-
-        if (propertyInfo.PropertyType != typeof(DateTime))
+    {        
+        if (!IsPropertyOfType(request, typeof(DateTime)))
             return false;
 
         var propertyName = GetPropertyName(request);
