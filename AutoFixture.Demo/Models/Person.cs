@@ -21,7 +21,7 @@ public class Person
     
     public string FullName => FirstName + " " + LastName;
 
-    public string Age => DateOfBirth.GetTimeDiffAsString();
+    public string Age => DateOfBirth.GetAgeAsString();
 
     // TODO: Uncomment and show demo
     // public string RandomData { get; set; }

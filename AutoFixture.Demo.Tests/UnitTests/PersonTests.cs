@@ -1,4 +1,6 @@
-﻿namespace AutoFixture.Demo.Tests.UnitTests;
+﻿using System.Text.RegularExpressions;
+
+namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class PersonTests : TestBase
 {
@@ -14,8 +16,8 @@ public class PersonTests : TestBase
     /// <param name="persons"></param>
     [Theory]
     //[AutoData]
-    [AutoDataCustom]
-    //[AutoDataPerson]
+    //[AutoDataCustom]
+    [AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
         OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
@@ -30,6 +32,12 @@ public class PersonTests : TestBase
             persons
                 .Should()
                 .AllSatisfy(p => p.FullName.Should().Contain(" "));
+
+            var nameRegex = new Regex("[A-Za-z]+ [A-Za-z]+", RegexOptions.Compiled);
+
+            persons
+                .Should()
+                .AllSatisfy(p => p.FullName.Should().MatchRegex(nameRegex));
 
             persons.Should()
                 .AllSatisfy(p => p.Age.Should().NotBeNullOrWhiteSpace());
