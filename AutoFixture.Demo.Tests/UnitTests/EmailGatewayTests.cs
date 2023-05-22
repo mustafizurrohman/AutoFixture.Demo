@@ -41,12 +41,12 @@ public class EmailGatewayTests : TestBase
     /// <param name="sut"></param>
     [Theory]
     [AutoMoqData]
-    public void SendEmailToGateway_AutoMoq(EmailMessage message,
+    public void SendEmailToGateway_AutoMoq(List<EmailMessage> messages,
         [Frozen] Mock<IEmailGateway> mockGateway,
         EmailMessageBuffer sut)
     {
         // Arrange
-        sut.Add(message);
+        sut.AddRange(messages);
 
         // Act
         sut.SendAll();
@@ -55,6 +55,6 @@ public class EmailGatewayTests : TestBase
         // Assert that the send method was called once 
         // since only one message was present in buffer
         // We do not care about details of EmailMessage
-        mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Once());
+        mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Exactly(messages.Count));
     }
 }

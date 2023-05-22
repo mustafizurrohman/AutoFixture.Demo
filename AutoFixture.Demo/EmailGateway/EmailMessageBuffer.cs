@@ -32,6 +32,11 @@ public class EmailMessageBuffer
         _emails.Add(message);
     }
 
+    public void AddRange(IEnumerable<EmailMessage> emails)
+    {
+        _emails.AddRange(emails);
+    }
+
     public void SendLimited(int maximumMessagesToSend)
     {
         var limitedBatchOfMessages = _emails.Take(maximumMessagesToSend).ToArray();
