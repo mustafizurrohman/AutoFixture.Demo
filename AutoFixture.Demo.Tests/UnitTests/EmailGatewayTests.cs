@@ -52,8 +52,8 @@ public class EmailGatewayTests : TestBase
         sut.SendAll();
 
         // Assert
-        // Assert that the send method was called once 
-        // since only one message was present in buffer
+        // Assert that the send method was called the same number of times 
+        // as there are messages in the buffer
         // We do not care about details of EmailMessage
         mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Exactly(messages.Count));
     }
