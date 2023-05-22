@@ -1,5 +1,4 @@
 global using Moq;
-global using AutoFixture.AutoMoq;
 
 global using Xunit;
 global using Xunit.Abstractions;
