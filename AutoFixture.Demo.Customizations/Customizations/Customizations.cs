@@ -6,7 +6,7 @@ public class NameCustomization : ICustomization
 {
     private string Localization { get; }
 
-    public NameCustomization(string localization = "de")
+    public NameCustomization(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
     }
@@ -23,7 +23,7 @@ public class EmailCustomization : ICustomization
 {
     private string Localization { get; }
 
-    public EmailCustomization(string localization = "de")
+    public EmailCustomization(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
     }
@@ -40,7 +40,7 @@ public class DobCustomization : ICustomization
 {
     private string Localization { get; }
 
-    public DobCustomization(string localization = "de")
+    public DobCustomization(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
     }
@@ -57,7 +57,7 @@ public class PhoneNumberCustomization : ICustomization
 {
     private string Localization { get; }
 
-    public PhoneNumberCustomization(string localization = "de")
+    public PhoneNumberCustomization(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
     }
@@ -74,7 +74,7 @@ public class StreetCustomization : ICustomization
 {
     private string Localization { get; }
 
-    public StreetCustomization(string localization = "de")
+    public StreetCustomization(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
     }
@@ -91,7 +91,7 @@ public class CityCustomization : ICustomization
 {
     private string Localization { get; }
 
-    public CityCustomization(string localization = "de")
+    public CityCustomization(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
     }

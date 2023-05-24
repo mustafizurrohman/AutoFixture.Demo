@@ -3,7 +3,7 @@
 internal class NamePropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {
-    public NamePropertyGenerator(string localization = "de") 
+    public NamePropertyGenerator(string localization = Localizations.DefaultLocalization) 
         : base(localization)
     {
     }

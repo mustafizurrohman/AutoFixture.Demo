@@ -3,7 +3,7 @@
 internal class CityPropertyGenerator
     : PropertyGeneratorBase, ISpecimenBuilder
 {
-    public CityPropertyGenerator(string localization = "de")
+    public CityPropertyGenerator(string localization = Localizations.Germany)
         : base(localization)
     {
     }

@@ -3,7 +3,7 @@
 internal class EmailPropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {    
-    public EmailPropertyGenerator(string localization = "de")
+    public EmailPropertyGenerator(string localization = Localizations.DefaultLocalization)
         : base(localization)
     {
     }

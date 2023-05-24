@@ -3,7 +3,7 @@
 internal class StreetPropertyGenerator
     : PropertyGeneratorBase, ISpecimenBuilder
 {
-    public StreetPropertyGenerator(string localization = "de")
+    public StreetPropertyGenerator(string localization = Localizations.DefaultLocalization)
         : base(localization)
     {
     }

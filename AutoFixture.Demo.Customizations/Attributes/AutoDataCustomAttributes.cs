@@ -7,7 +7,7 @@ namespace AutoFixture.Demo.Customizations.Attributes;
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoDataCustomAttribute : AutoDataAttribute
 {
-    public AutoDataCustomAttribute(string localization = "de")
+    public AutoDataCustomAttribute(string localization = Localizations.DefaultLocalization)
         : base(() => new Fixture().Customize(new AllCustomization(localization)))
     {
 
@@ -17,7 +17,7 @@ public sealed class AutoDataCustomAttribute : AutoDataAttribute
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoDataPersonAttribute : AutoDataAttribute
 {
-    public AutoDataPersonAttribute(string localization = "de")
+    public AutoDataPersonAttribute(string localization = Localizations.DefaultLocalization)
         : base(() => new Fixture().Customize(new PersonCustomization(localization)))
     {
 
@@ -27,7 +27,7 @@ public sealed class AutoDataPersonAttribute : AutoDataAttribute
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoDataContactAttribute : AutoDataAttribute
 {
-    public AutoDataContactAttribute(string localization = "de")
+    public AutoDataContactAttribute(string localization = Localizations.DefaultLocalization)
         : base(() => new Fixture().Customize(new ContactCustomization(localization)))
     {
 

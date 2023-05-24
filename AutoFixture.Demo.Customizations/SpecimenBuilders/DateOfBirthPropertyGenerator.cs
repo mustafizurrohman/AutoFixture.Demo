@@ -3,7 +3,7 @@
 internal class DateOfBirthPropertyGenerator 
     : PropertyGeneratorBase, ISpecimenBuilder
 {
-    public DateOfBirthPropertyGenerator(string localization = "de")
+    public DateOfBirthPropertyGenerator(string localization = Localizations.DefaultLocalization)
         : base(localization)
     {
     }

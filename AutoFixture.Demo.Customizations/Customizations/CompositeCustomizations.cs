@@ -2,7 +2,7 @@
 
 public sealed class AllCustomization : CompositeCustomization
 {
-    public AllCustomization(string localization = "de")
+    public AllCustomization(string localization = Localizations.DefaultLocalization)
         : base(
               new PersonCustomization(localization),
               new ContactCustomization(localization)
@@ -13,7 +13,7 @@ public sealed class AllCustomization : CompositeCustomization
 
 public sealed class PersonCustomization : CompositeCustomization
 {
-    public PersonCustomization(string localization = "de")
+    public PersonCustomization(string localization = Localizations.DefaultLocalization)
         : base(
             new NameCustomization(localization),
             new DobCustomization(localization)
@@ -25,7 +25,7 @@ public sealed class PersonCustomization : CompositeCustomization
 
 public sealed class ContactCustomization : CompositeCustomization
 {
-    public ContactCustomization(string localization = "de")
+    public ContactCustomization(string localization = Localizations.DefaultLocalization)
         : base(
             new EmailCustomization(localization),
             new PhoneNumberCustomization(localization),

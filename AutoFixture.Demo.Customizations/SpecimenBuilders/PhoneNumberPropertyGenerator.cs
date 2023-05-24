@@ -3,7 +3,7 @@
 internal class PhoneNumberPropertyGenerator
     : PropertyGeneratorBase, ISpecimenBuilder
 {
-    public PhoneNumberPropertyGenerator(string localization = "de")
+    public PhoneNumberPropertyGenerator(string localization = Localizations.DefaultLocalization)
         : base(localization)
     {
     }

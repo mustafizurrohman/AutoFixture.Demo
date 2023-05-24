@@ -7,7 +7,7 @@ public abstract class PropertyGeneratorBase
     protected Faker Faker { get; }
     private string Localization { get; }
 
-    protected PropertyGeneratorBase(string localization = "de")
+    protected PropertyGeneratorBase(string localization = Localizations.DefaultLocalization)
     {
         Localization = localization;
         Faker = new Faker(Localization);
