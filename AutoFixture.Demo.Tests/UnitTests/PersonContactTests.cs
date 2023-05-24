@@ -1,4 +1,6 @@
-﻿namespace AutoFixture.Demo.Tests.UnitTests;
+﻿using AutoFixture.Demo.Core.Constants;
+
+namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class PersonContactTests : TestBase
 {
@@ -13,7 +15,7 @@ public class PersonContactTests : TestBase
     /// </summary>
     /// <param name="personContacts"></param>
     [Theory]
-    [AutoDataCustom]
+    [AutoDataCustom(Localizations.Spain)]
     // [AutoDataPerson]
     public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1(List<PersonContact> personContacts)
     {

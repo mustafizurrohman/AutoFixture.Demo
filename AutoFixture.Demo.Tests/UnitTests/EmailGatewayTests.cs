@@ -1,6 +1,4 @@
-﻿using AutoFixture.Demo.EmailGateway;
-
-namespace AutoFixture.Demo.Tests.UnitTests;
+﻿namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class EmailGatewayTests : TestBase
 {
@@ -36,7 +34,7 @@ public class EmailGatewayTests : TestBase
     /// For this to work mockGateway should be frozen first and then
     /// EmailMessageBuffer should be created
     /// </summary>
-    /// <param name="message"></param>
+    /// <param name="messages"></param>
     /// <param name="mockGateway"></param>
     /// <param name="sut"></param>
     [Theory]
@@ -57,4 +55,29 @@ public class EmailGatewayTests : TestBase
         // We do not care about details of EmailMessage
         mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Exactly(messages.Count));
     }
+
+    [Theory]
+    [AutoMoqData]
+    public void SendEmailToGateway_ManualMoq_SendLimited(int num1, int num2)
+    {
+        // Arrange
+        var min = Math.Min(num1, num2);
+        var max = Math.Max(num1, num2);
+
+        var fixture = new Fixture();
+
+        var mockGateway = new Mock<IEmailGateway>();
+
+        var sut = new EmailMessageBuffer(mockGateway.Object);
+        sut.AddRange(fixture.CreateMany<EmailMessage>(max));
+
+        var numberOfMessagesToSend = fixture.CreateInt(min, max - 1);
+
+        // Act
+        sut.SendLimited(numberOfMessagesToSend);
+
+        // Assert
+        mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Exactly(numberOfMessagesToSend));
+    }
+
 }

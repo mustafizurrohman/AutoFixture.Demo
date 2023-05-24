@@ -12,3 +12,5 @@ global using AutoFixture.Demo.Models;
 global using AutoFixture.Demo.Core.ExtensionMethods;
 global using AutoFixture.Demo.Customizations.Attributes;
 global using AutoFixture.Demo.Customizations.Customizations;
+global using AutoFixture.Demo.Customizations.Extensions;
+global using AutoFixture.Demo.EmailGateway;

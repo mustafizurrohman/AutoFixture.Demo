@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 
 namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
@@ -11,6 +12,7 @@ public abstract class PropertyGeneratorBase
     {
         Localization = localization;
         Faker = new Faker(Localization);
+        Debug.WriteLine("Current localization : " + localization);
     }
 
     private static bool IsPropertyOfType(object request, Type type)

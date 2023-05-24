@@ -12,6 +12,6 @@ public static class Localizations
     public const string Spain = "es";
     public const string Turkey = "tr";
 
-    public const string DefaultLocalization = Ukraine;
+    public const string DefaultLocalization = UnitedKingdom;
 }
 
