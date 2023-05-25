@@ -1,4 +1,6 @@
-﻿namespace AutoFixture.Demo.Tests.UnitTests;
+﻿using AutoFixture.Demo.Tests.AssertionHelpers;
+
+namespace AutoFixture.Demo.Tests.UnitTests;
 
 public class ContactTests : TestBase
 {
@@ -16,9 +18,7 @@ public class ContactTests : TestBase
 
         using (new AssertionScope())
         {
-            contacts
-                .Should()
-                .NotBeNull();
+            contacts.ShouldBeValidContacts();
         }
     }
 
@@ -32,8 +32,7 @@ public class ContactTests : TestBase
         using (new AssertionScope())
         {
             contacts
-                .Should()
-                .NotBeNull();
+                .ShouldBeValidContacts();
 
             contacts
                 .Should()

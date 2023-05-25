@@ -1,5 +1,4 @@
-﻿using System.Text.RegularExpressions;
-using AutoFixture.Demo.Tests.AssertionHelpers;
+﻿using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
