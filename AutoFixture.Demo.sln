@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixture.Demo.Customizat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixture.Demo.Tests", "AutoFixture.Demo.Tests\AutoFixture.Demo.Tests.csproj", "{67278EDE-9CC5-42FB-ACCE-C481D6542144}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoFixture.Demo.Core", "AutoFixture.Demo.Core\AutoFixture.Demo.Core.csproj", "{AB8A0E38-5172-4E03-B08E-FB50AE596911}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoFixture.Demo.Core", "AutoFixture.Demo.Core\AutoFixture.Demo.Core.csproj", "{AB8A0E38-5172-4E03-B08E-FB50AE596911}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
