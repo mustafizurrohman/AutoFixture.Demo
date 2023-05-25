@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text.RegularExpressions;
 using Bogus.DataSets;
+// ReSharper disable MemberCanBePrivate.Global
 
 namespace AutoFixture.Demo.Tests.AssertionHelpers;
 
@@ -46,6 +47,12 @@ public static partial class PersonAssertions
             .Should()
             .BeBefore(now);
 
+    }
+
+    public static void ShouldBeValidPersons(this IEnumerable<Person> persons)
+    {
+        persons.Should()
+            .AllSatisfy(p => p.ShouldBeValidPerson());
     }
 
 
