@@ -15,7 +15,7 @@ public class PersonContactTests : TestBase
     /// </summary>
     /// <param name="personContacts"></param>
     [Theory]
-    [AutoDataCustom(Localizations.Spain)]
+    [AutoDataCustom(Localizations.Italian)]
     // [AutoDataPerson]
     public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1(List<PersonContact> personContacts)
     {
