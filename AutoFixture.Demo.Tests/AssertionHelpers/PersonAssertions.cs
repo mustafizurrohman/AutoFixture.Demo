@@ -45,6 +45,14 @@ public static partial class PersonAssertions
             .Should()
             .BeBefore(now, because: "A person must be born in the past");
 
+        person.DateOfBirth
+            .Should()
+            .NotBeCloseTo(DateTime.MinValue, TimeSpan.FromDays(10));
+
+        person.DateOfBirth
+            .Should()
+            .NotBeCloseTo(DateTime.MaxValue, TimeSpan.FromDays(10));
+
     }
 
     public static void ShouldBeValidPersons(this IEnumerable<Person> persons)
