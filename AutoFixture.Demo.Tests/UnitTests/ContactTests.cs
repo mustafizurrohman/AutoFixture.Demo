@@ -55,7 +55,6 @@ public class ContactTests : TestBase
 
         // Assert
         persons.Should().NotBeNull();
-
     }
 
     [Fact]
