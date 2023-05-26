@@ -1,4 +1,5 @@
 ﻿using AutoFixture.Demo.Core.Constants;
+using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
@@ -15,7 +16,7 @@ public class PersonContactTests : TestBase
     /// </summary>
     /// <param name="personContacts"></param>
     [Theory]
-    [AutoDataCustom(Localizations.Italian)]
+    [AutoDataCustom(Localizations.Dutch)]
     // [AutoDataPerson]
     public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1(List<PersonContact> personContacts)
     {
@@ -24,6 +25,8 @@ public class PersonContactTests : TestBase
         using (new AssertionScope())
         {
             personContacts.Should().NotBeNull();
+
+            personContacts.ShouldBeValidPersonContacts();
         }
     }
 
@@ -40,7 +43,8 @@ public class PersonContactTests : TestBase
 
         // Act
         var personContacts = fixture.Build<PersonContact>()
-            .CreateMany(num);
+            .CreateMany(num)
+            .ToList();
 
         PrintObject(personContacts);
 
@@ -48,6 +52,8 @@ public class PersonContactTests : TestBase
         using (new AssertionScope())
         {
             personContacts.Should().NotBeNull();
+
+            personContacts.ShouldBeValidPersonContacts();
         }
     }
 }
