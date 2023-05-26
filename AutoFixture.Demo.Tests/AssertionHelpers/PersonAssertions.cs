@@ -5,10 +5,10 @@ namespace AutoFixture.Demo.Tests.AssertionHelpers;
 
 public static partial class PersonAssertions
 {
-    [GeneratedRegex("[\u0000-\u007Fäüößé]+ [\u0000-\u007Fäüößé]+", RegexOptions.Compiled)]
+    [GeneratedRegex("[\u0000-\u007FäüößéÄÜÖ]+ [\u0000-\u007FäüößéÄÜÖ]+", RegexOptions.Compiled)]
     private static partial Regex FullNameRegex();
 
-    [GeneratedRegex("[\u0000-\u007Fäüößé][\u0000-\u007Fäüößé]+", RegexOptions.Compiled)]
+    [GeneratedRegex("[\u0000-\u007FäüößéÄÜÖ][\u0000-\u007FäüößéÄÜÖ]+", RegexOptions.Compiled)]
     private static partial Regex NameRegex();
 
     public static void ShouldBeValidPerson(this Person person)
