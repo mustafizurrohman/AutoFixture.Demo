@@ -19,7 +19,7 @@ public static partial class PersonAssertions
 
         person
             .Should()
-            .NotBeNull();
+            .NotBeNull(because: "A person should be generated");
 
         person.FirstName
             .Should()
@@ -35,7 +35,7 @@ public static partial class PersonAssertions
 
         person.FullName
             .Should()
-            .Contain(" ");
+            .Contain(" ", because: "There must be a white space between the first and last name");
 
         person.Age
             .Should()
@@ -43,7 +43,7 @@ public static partial class PersonAssertions
 
         person.DateOfBirth
             .Should()
-            .BeBefore(now);
+            .BeBefore(now, because: "A person must be born in the past");
 
     }
 

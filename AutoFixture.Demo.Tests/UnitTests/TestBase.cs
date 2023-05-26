@@ -12,6 +12,8 @@ public abstract class TestBase
 
     protected void PrintObject(object obj)
     {
+#if DEBUG
         OutputHelper.WriteLine(obj.ToFormattedJsonFailSafe());
+#endif
     }
 }

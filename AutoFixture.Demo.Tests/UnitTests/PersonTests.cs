@@ -10,8 +10,8 @@ public class PersonTests : TestBase
     }
 
     /// <summary>
-    /// This does not test anything a such
-    /// Comment and uncomment the attributes and observe how it influences the generation of List of Person
+    /// This does generates person and checks that the generated values are in accordance
+    /// to the business rules
     /// </summary>
     /// <param name="persons"></param>
     [Theory]
@@ -25,9 +25,7 @@ public class PersonTests : TestBase
         // ASSERT
         using (new AssertionScope())
         {
-            persons
-                .Should()
-                .AllSatisfy(p => p.ShouldBeValidPerson());
+            persons.ShouldBeValidPersons();
         }
 
     }

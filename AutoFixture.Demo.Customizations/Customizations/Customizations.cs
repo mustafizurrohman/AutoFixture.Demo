@@ -103,3 +103,20 @@ public class CityCustomization : ICustomization
         fixture.Customizations.Add(new CityPropertyGenerator(Localization));
     }
 }
+
+public class PersonIDCustomization : ICustomization
+{
+    private string Localization { get; }
+
+    public PersonIDCustomization(string localization = Localizations.DefaultLocalization)
+    {
+        Localization = localization;
+    }
+
+    public void Customize(IFixture fixture)
+    {
+        ArgumentNullException.ThrowIfNull(fixture);
+
+        fixture.Customizations.Add(new PersonIdGenerator(Localization));
+    }
+}

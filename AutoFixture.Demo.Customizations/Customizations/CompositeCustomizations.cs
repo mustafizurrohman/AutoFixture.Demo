@@ -16,7 +16,8 @@ public sealed class PersonCustomization : CompositeCustomization
     public PersonCustomization(string localization = Localizations.DefaultLocalization)
         : base(
             new NameCustomization(localization),
-            new DobCustomization(localization)
+            new DobCustomization(localization),
+            new PersonIDCustomization(localization)
         ) 
     {
 

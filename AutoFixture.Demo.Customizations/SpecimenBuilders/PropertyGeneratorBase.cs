@@ -15,7 +15,7 @@ public abstract class PropertyGeneratorBase
         Debug.WriteLine("Current localization : " + localization);
     }
 
-    private static bool IsPropertyOfType(object request, Type type)
+    protected static bool IsPropertyOfType(object request, Type type)
     {
         if (request is not PropertyInfo propertyInfo) 
             return false;

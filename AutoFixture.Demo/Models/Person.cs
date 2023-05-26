@@ -2,6 +2,7 @@
 // ReSharper disable ClassNeverInstantiated.Global
 
 using AutoFixture.Demo.Core.ExtensionMethods;
+using AutoFixture.Demo.Entities;
 
 namespace AutoFixture.Demo.Models; 
 
@@ -13,8 +14,11 @@ public class Person
 {
     private static DateTime Now => DateTime.Now;
 
-    public string FirstName { get; set; } 
-    public string LastName { get; set; }
+    // Not a primitive obsession!
+    public PersonID ID { get; set; }
+
+    public string FirstName { get; init; } = string.Empty;
+    public string LastName { get; init; } = string.Empty;
     public DateTime DateOfBirth { get; set; }
 
     public DateTime CreatedOn = Now;
@@ -25,14 +29,7 @@ public class Person
 
     // TODO: Uncomment and show demo
     // public string RandomData { get; set; }
-
-    public Person(string firstName, string lastName, DateTime dateOfBirth)
-    {
-        FirstName = firstName ?? throw new ArgumentNullException(nameof(firstName));
-        LastName = lastName ?? throw new ArgumentNullException(nameof(lastName));
-        DateOfBirth = dateOfBirth;
-    }
-
+    
     public void UpdateDateOfBirth(DateTime updatedDob)
     {
         if (updatedDob > CreatedOn)
