@@ -55,6 +55,7 @@ public class ContactTests : TestBase
 
         // Assert
         persons.Should().NotBeNull();
+
     }
 
     [Fact]
@@ -72,6 +73,6 @@ public class ContactTests : TestBase
         PrintObject(persons);
 
         // Assert
-        persons.Should().NotBeNull();
+        persons.ShouldBeValidPersons();
     }
 }
