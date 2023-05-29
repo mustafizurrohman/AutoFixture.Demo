@@ -39,9 +39,11 @@ public class PersonContactTests : TestBase
     {
         // Arrange
         var fixture = new Fixture();
+        // Customize the fixture
         fixture.Customize(new AllCustomization());
 
         // Act
+        // Create PersonContact while specifying how many of it we need
         var personContacts = fixture.Build<PersonContact>()
             .CreateMany(num)
             .ToList();

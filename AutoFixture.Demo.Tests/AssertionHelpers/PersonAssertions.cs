@@ -19,7 +19,7 @@ public static partial class PersonAssertions
 
         person
             .Should()
-            .NotBeNull(because: "A person should be generated");
+            .NotBeNull(because: "A person should not be null");
 
         person.FirstName
             .Should()

@@ -57,7 +57,7 @@ public static class Localizations
     // Do not change: This is for reference
     public const string DefaultFallbackLocalization = English;
     
-    // Change if needed
+    // Change if and as needed
     public const string DefaultLocalization = German;
 }
 

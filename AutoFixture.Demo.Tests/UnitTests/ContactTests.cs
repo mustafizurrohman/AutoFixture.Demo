@@ -1,4 +1,5 @@
 ﻿using AutoFixture.Demo.Tests.AssertionHelpers;
+#pragma warning disable S125
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
@@ -61,8 +62,12 @@ public class ContactTests : TestBase
     public void DemoContactGenerationWithFixtureCustomization()
     {
         // Arrange
-        var fixture = new Fixture();
-        fixture.Customize(new AllCustomization());
+        // var fixture = new Fixture();
+        // fixture.Customize(new AllCustomization());
+
+        var fixture = new Fixture()
+            .Customize(new AllCustomization());
+        
         var personBuilder = fixture.Build<Person>();
 
         // Act

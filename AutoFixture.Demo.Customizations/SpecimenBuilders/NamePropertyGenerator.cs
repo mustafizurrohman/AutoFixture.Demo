@@ -17,6 +17,5 @@ internal class NamePropertyGenerator
             return Faker.Name.LastName();
         
         return new NoSpecimen();
-
     }
 }

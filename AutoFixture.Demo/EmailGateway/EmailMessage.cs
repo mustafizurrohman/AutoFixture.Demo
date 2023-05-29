@@ -1,4 +1,5 @@
-﻿namespace AutoFixture.Demo.EmailGateway;
+﻿// ReSharper disable ClassNeverInstantiated.Global
+namespace AutoFixture.Demo.EmailGateway;
 
 public class EmailMessage
 {

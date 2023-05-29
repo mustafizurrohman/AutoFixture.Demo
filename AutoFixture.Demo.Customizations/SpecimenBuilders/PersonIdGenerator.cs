@@ -23,6 +23,7 @@ internal class PersonIdGenerator
         if (!IsPropertyOfType(request, typeof(PersonID)))
             return new NoSpecimen();
 
+        // Custom logic to generate string for PersonID
         var generatedId = Guid.NewGuid()
             .ToString()
             .Replace("-", string.Empty)
