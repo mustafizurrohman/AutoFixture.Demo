@@ -1,5 +1,8 @@
 ﻿namespace AutoFixture.Demo.Customizations.Customizations;
 
+/// <summary>
+/// Composite customization containing all custom rules
+/// </summary>
 public sealed class AllCustomization : CompositeCustomization
 {
     public AllCustomization(string localization = Localizations.DefaultLocalization)
@@ -11,6 +14,10 @@ public sealed class AllCustomization : CompositeCustomization
     }
 }
 
+/// <summary>
+/// Composite customization containing all custom rules for 
+/// custom generation for properties of Person
+/// </summary>
 public sealed class PersonCustomization : CompositeCustomization
 {
     public PersonCustomization(string localization = Localizations.DefaultLocalization)
@@ -24,6 +31,10 @@ public sealed class PersonCustomization : CompositeCustomization
     }
 }
 
+/// <summary>
+/// Composite customization containing all custom rules for 
+/// custom generation for properties of Contact
+/// </summary>
 public sealed class ContactCustomization : CompositeCustomization
 {
     public ContactCustomization(string localization = Localizations.DefaultLocalization)

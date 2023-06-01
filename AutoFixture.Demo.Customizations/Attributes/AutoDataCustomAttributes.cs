@@ -4,6 +4,9 @@ using AutoFixture.Xunit2;
 
 namespace AutoFixture.Demo.Customizations.Attributes;
 
+/// <summary>
+/// All customizations
+/// </summary>
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoDataCustomAttribute : AutoDataAttribute
 {
@@ -14,6 +17,9 @@ public sealed class AutoDataCustomAttribute : AutoDataAttribute
     }
 }
 
+/// <summary>
+/// Customizations for person
+/// </summary>
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoDataPersonAttribute : AutoDataAttribute
 {
@@ -24,6 +30,9 @@ public sealed class AutoDataPersonAttribute : AutoDataAttribute
     }
 }
 
+/// <summary>
+/// Customizations for Contact
+/// </summary>
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoDataContactAttribute : AutoDataAttribute
 {
@@ -34,7 +43,9 @@ public sealed class AutoDataContactAttribute : AutoDataAttribute
     }
 }
 
-// AutoMoq
+/// <summary>
+/// AutoMoq customization
+/// </summary>
 [AttributeUsage(AttributeTargets.Method)]
 public sealed class AutoMoqDataAttribute : AutoDataAttribute
 {
