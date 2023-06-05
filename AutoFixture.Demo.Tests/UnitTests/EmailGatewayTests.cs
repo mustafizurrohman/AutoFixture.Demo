@@ -25,7 +25,7 @@ public class EmailGatewayTests : TestBase
         // Assert that the send method was called once 
         // since only one message was present in buffer
         // We do not care about details of EmailMessage
-        mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Once());
+        mockGateway.Verify(mg => mg.Send(It.IsAny<EmailMessage>()), Times.Once());
     }
 
     /// <summary>
@@ -53,7 +53,7 @@ public class EmailGatewayTests : TestBase
         // Assert that the send method was called the same number of times 
         // as there are messages in the buffer
         // We do not care about details of EmailMessage
-        mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Exactly(messages.Count));
+        mockGateway.Verify(mg => mg.Send(It.IsAny<EmailMessage>()), Times.Exactly(messages.Count));
     }
 
     [Theory]
@@ -77,7 +77,7 @@ public class EmailGatewayTests : TestBase
         sut.SendLimited(numberOfMessagesToSend);
 
         // Assert
-        mockGateway.Verify(x => x.Send(It.IsAny<EmailMessage>()), Times.Exactly(numberOfMessagesToSend));
+        mockGateway.Verify(mg => mg.Send(It.IsAny<EmailMessage>()), Times.Exactly(numberOfMessagesToSend));
     }
 
 }

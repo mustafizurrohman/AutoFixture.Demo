@@ -43,7 +43,7 @@ public class PersonContactTests : TestBase
         fixture.Customize(new AllCustomization());
 
         // Act
-        // Create PersonContact while specifying how many of it we need
+        // Create PersonContact while specifying how many of it we need- default is 3
         var personContacts = fixture.Build<PersonContact>()
             .CreateMany(num)
             .ToList();
