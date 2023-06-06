@@ -14,7 +14,7 @@ internal class BoolPropertyGenerator
         if (!IsPropertyOfType(request, typeof(bool)))
             return new NoSpecimen();
 
-        return DateTime.Now.Ticks % 2 == 0;
+        return Faker.Random.Number(10, 1000) % 2 == 0;
     }
 }
 

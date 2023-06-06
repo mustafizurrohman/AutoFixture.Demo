@@ -64,7 +64,8 @@ public class EmailGatewayTests : TestBase
         var min = Math.Min(num1, num2);
         var max = Math.Max(num1, num2);
 
-        var fixture = new Fixture();
+        var fixture = new Fixture()
+            .Customize(new AllCustomization());
 
         var mockGateway = new Mock<IEmailGateway>();
 

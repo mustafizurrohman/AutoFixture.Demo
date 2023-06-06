@@ -13,6 +13,10 @@ public class EmailMessageBuffer
     
     public int UnsentMessagesCount => _emails.Count;
 
+    public int ImportantUnsentMessagesCount => _emails.Count(email => email.IsImportant);
+
+    public int UnImportantUnsentMessagesCount => _emails.Count(email => !email.IsImportant);
+
     public void SendAll()
     {
         foreach (var email in _emails.ToList())
