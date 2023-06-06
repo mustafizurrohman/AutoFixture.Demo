@@ -8,9 +8,11 @@ public sealed class AllCustomization : CompositeCustomization
     public AllCustomization(string localization = Localizations.DefaultLocalization)
         : base(
               new PersonCustomization(localization),
-              new ContactCustomization(localization)
+              new ContactCustomization(localization),
+              new BoolCustomization(localization)
         )
     {
+
     }
 }
 

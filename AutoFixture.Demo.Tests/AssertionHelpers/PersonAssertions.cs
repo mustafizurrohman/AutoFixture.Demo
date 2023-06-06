@@ -5,12 +5,18 @@ namespace AutoFixture.Demo.Tests.AssertionHelpers;
 
 public static partial class PersonAssertions
 {
+    // [^()[\]{}*&^%$#@!]+
     [GeneratedRegex("[\u0000-\u007FäüößéÄÜÖ]+ [\u0000-\u007FäüößéÄÜÖ]+", RegexOptions.Compiled)]
     private static partial Regex FullNameRegex();
 
     [GeneratedRegex("[\u0000-\u007FäüößéÄÜÖ][\u0000-\u007FäüößéÄÜÖ]+", RegexOptions.Compiled)]
     private static partial Regex NameRegex();
 
+    /// <summary>
+    /// Assert that a person has valid attributes / is valid
+    /// Please enclose with a new assertion scope, if necessary
+    /// </summary>
+    /// <param name="person">Instance of person to assert</param>
     public static void ShouldBeValidPerson(this Person person)
     {
         var fullNameRegex = FullNameRegex();
@@ -55,6 +61,11 @@ public static partial class PersonAssertions
 
     }
 
+    /// <summary>
+    /// Assert that a IEnumerable of Person has valid attributes / are valid
+    /// Please enclose with a new assertion scope, if necessary
+    /// </summary>
+    /// <param name="persons">IEnumerable of Persons</param>
     public static void ShouldBeValidPersons(this IEnumerable<Person> persons)
     {
         persons.Should()

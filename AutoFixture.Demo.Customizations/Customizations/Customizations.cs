@@ -120,3 +120,20 @@ public class PersonIDCustomization : ICustomization
         fixture.Customizations.Add(new PersonIdGenerator(Localization));
     }
 }
+
+public class BoolCustomization : ICustomization
+{
+    private string Localization { get; }
+
+    public BoolCustomization(string localization = Localizations.DefaultLocalization)
+    {
+        Localization = localization;
+    }
+
+    public void Customize(IFixture fixture)
+    {
+        ArgumentNullException.ThrowIfNull(fixture);
+
+        fixture.Customizations.Add(new BoolPropertyGenerator(Localization));
+    }
+}

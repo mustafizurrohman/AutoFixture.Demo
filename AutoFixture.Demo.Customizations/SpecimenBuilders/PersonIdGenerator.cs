@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using AutoFixture.Demo.Entities;
+﻿using AutoFixture.Demo.Entities;
 
 namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
