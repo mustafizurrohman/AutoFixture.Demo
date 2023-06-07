@@ -32,15 +32,21 @@ public class PersonContactTests : TestBase
 
     /// <summary>
     /// Possibility 2: we can configure how many elements personContact will have
+    /// Here we are using AutoFixture to decide how many elements we want to create
     /// </summary>
     [Theory]
     [AutoData]
     public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant2(int num)
     {
         // Arrange
-        var fixture = new Fixture();
+        // Create fixture
+        // var fixture = new Fixture();
         // Customize the fixture
-        fixture.Customize(new AllCustomization());
+        // fixture.Customize(new AllCustomization());
+
+        // Create and Customize fixture
+        var fixture = new Fixture()
+            .Customize(new AllCustomization());
 
         // Act
         // Create PersonContact while specifying how many of it we need- default is 3

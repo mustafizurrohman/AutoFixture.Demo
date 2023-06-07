@@ -34,9 +34,9 @@ public class EmailGatewayTests : TestBase
     /// For this to work mockGateway should be frozen first and then
     /// EmailMessageBuffer should be created
     /// </summary>
-    /// <param name="messages"></param>
-    /// <param name="mockGateway"></param>
-    /// <param name="sut"></param>
+    /// <param name="messages">Messages</param>
+    /// <param name="mockGateway">Mock of Email Gateway</param>
+    /// <param name="sut">System under test</param>
     [Theory]
     [AutoMoqData]
     public void SendEmailToGateway_AutoMoq(List<EmailMessage> messages,
