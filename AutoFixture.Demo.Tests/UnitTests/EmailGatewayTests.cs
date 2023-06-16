@@ -57,7 +57,7 @@ public class EmailGatewayTests : TestBase
     }
 
     [Theory]
-    [AutoMoqData]
+    [AutoDataCustom]
     public void SendEmailToGateway_ManualMoq_SendLimited(int num1, int num2)
     {
         // Arrange

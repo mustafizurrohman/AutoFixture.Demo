@@ -26,7 +26,8 @@ public sealed class PersonCustomization : CompositeCustomization
         : base(
             new NameCustomization(localization),
             new DobCustomization(localization),
-            new PersonIDCustomization(localization)
+            new PersonIDCustomization(localization),
+            new BoolCustomization(localization)
         ) 
     {
 
@@ -44,7 +45,8 @@ public sealed class ContactCustomization : CompositeCustomization
             new EmailCustomization(localization),
             new PhoneNumberCustomization(localization),
             new StreetCustomization(localization),
-            new CityCustomization(localization)
+            new CityCustomization(localization),
+            new BoolCustomization(localization)
         )
     {
 
