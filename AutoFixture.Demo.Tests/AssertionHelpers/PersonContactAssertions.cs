@@ -29,4 +29,3 @@ public static class PersonContactAssertions
             .AllSatisfy(pc => pc.ShouldBeValidPersonContact());
     }
 }
-

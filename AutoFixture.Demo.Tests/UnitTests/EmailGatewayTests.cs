@@ -77,7 +77,7 @@ public class EmailGatewayTests : TestBase
         // Act
         sut.SendLimited(numberOfMessagesToSend);
 
-        // Assert
+        // Assert- Verify that Send method was called exactly 'numberOfMessagesToSend' times
         mockGateway.Verify(mg => mg.Send(It.IsAny<EmailMessage>()), Times.Exactly(numberOfMessagesToSend));
     }
 
