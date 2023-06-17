@@ -62,20 +62,18 @@ public class ContactTests : TestBase
         }
     }
 
-    [Fact]
-    public void DemoContactGenerationWithFixtureCustomization()
+    [Theory]
+    [AutoData]
+    public void DemoContactGenerationWithFixtureCustomization(int num)
     {
-        // Arrange
-        // var fixture = new Fixture();
-        // fixture.Customize(new AllCustomization());
-
+        // Arrange- Create and customize fixture
         var fixture = new Fixture()
             .Customize(new AllCustomization());
         
         var personBuilder = fixture.Build<Person>();
 
         // Act
-        var persons = personBuilder.CreateMany()
+        var persons = personBuilder.CreateMany(num)
             .ToList();
 
         PrintObject(persons);

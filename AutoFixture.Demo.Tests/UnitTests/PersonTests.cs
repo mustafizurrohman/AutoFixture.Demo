@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Tests.AssertionHelpers;
+﻿using AutoFixture.Demo.Core.Constants;
+using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
@@ -16,7 +17,7 @@ public class PersonTests : TestBase
     /// <param name="persons"></param>
     [Theory]
     // [AutoData]
-    [AutoDataCustom]
+    [AutoDataCustom(localization: Localizations.Chinese)]
     //[AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {

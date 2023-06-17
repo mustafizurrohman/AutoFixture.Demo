@@ -1,13 +1,11 @@
-﻿using System.Text.RegularExpressions;
-// ReSharper disable MemberCanBePrivate.Global
+﻿// ReSharper disable MemberCanBePrivate.Global
 
 namespace AutoFixture.Demo.Tests.AssertionHelpers;
 
-public static partial class PersonAssertions
+public static class PersonAssertions
 {
-    [GeneratedRegex("[\u0000-\u007FäüößéÄÜÖ]+ [\u0000-\u007FäüößéÄÜÖ]+", RegexOptions.Compiled)]
-    private static partial Regex FullNameRegex();
-    
+    private const string Space = " ";
+
     /// <summary>
     /// Assert that a person has valid attributes / is valid
     /// Please enclose with a new assertion scope, if necessary
@@ -15,28 +13,31 @@ public static partial class PersonAssertions
     /// <param name="person">Instance of person to assert</param>
     public static void ShouldBeValidPerson(this Person person)
     {
-        var fullNameRegex = FullNameRegex();
         var now = DateTime.Now;
 
         person
             .Should()
             .NotBeNull(because: "A person should not be null");
-        
+
         person.FirstName
             .Should()
-            .Match(ch => ch.All(char.IsLetter));
+            .NotContain(Space);
+
+        person.FirstName
+            .Should()
+            .Match(ch => ch.All(char.IsLetter), because: "Firstname should not contain numbers or special characters");
 
         person.LastName
             .Should()
-            .Match(ch => ch.All(char.IsLetter));
+            .NotContain(Space);
+
+        person.LastName
+            .Should()
+            .Match(ch => ch.All(char.IsLetter), because: "Lastname should not contain numbers or special characters");
 
         person.FullName
             .Should()
-            .MatchRegex(fullNameRegex);
-
-        person.FullName
-            .Should()
-            .Contain(" ", because: "There must be a white space between the first and last name");
+            .Contain(Space, because: "There must be a white space between the first and last name");
 
         person.Age
             .Should()
@@ -67,7 +68,4 @@ public static partial class PersonAssertions
             .AllSatisfy(p => p.ShouldBeValidPerson());
     }
 
-
 }
-
-
