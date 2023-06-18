@@ -21,7 +21,7 @@ public static class PersonContactAssertions
     /// Assert that a IEnumerable of PersonContacts has valid attributes / are valid
     /// Please enclose with a new assertion scope, if necessary
     /// </summary>
-    /// <param name="personContacts">IEnumerable of PersonContacts</param>
+    /// <param name="personContacts">IEnumerable of PersonContacts to assert</param>
     public static void ShouldBeValidPersonContacts(this IEnumerable<PersonContact> personContacts)
     {
         personContacts

@@ -31,7 +31,7 @@ public static class ContactAssertions
     /// Assert that a IEnumerable of Contact has valid attributes / are valid
     /// Please enclose with a new assertion scope, if necessary
     /// </summary>
-    /// <param name="contacts">IEnumerable of Contact</param>
+    /// <param name="contacts">IEnumerable of Contact to assert</param>
     public static void ShouldBeValidContacts(this IEnumerable<Contact> contacts)
     {
         contacts.Should()
