@@ -1,4 +1,7 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
+
+using System.Reflection;
+
 namespace AutoFixture.Demo.Core.Constants;
 
 public static class Localizations
@@ -59,5 +62,22 @@ public static class Localizations
     
     // Change if and as needed
     public const string DefaultLocalization = German;
+
+    private static List<string> _allLocalizations = new();
+
+    public static List<string> GetAllLocalizations()
+    {
+        if (_allLocalizations.Count != 0)
+            return _allLocalizations;
+
+        _allLocalizations =  typeof(Localizations)
+            .GetFields(BindingFlags.Public | BindingFlags.Static)
+            .Where(f => f.FieldType == typeof(string))
+            .Select(f => (string)f.GetValue(string.Empty)! ?? string.Empty)
+            .ToList();
+
+        return _allLocalizations;
+    }
 }
 
+ 

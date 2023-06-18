@@ -10,6 +10,11 @@ public abstract class PropertyGeneratorBase
 
     protected PropertyGeneratorBase(string localization = Localizations.DefaultLocalization)
     {
+        var allLocalizations = Localizations.GetAllLocalizations();
+
+        if (!allLocalizations.Contains(localization))
+            localization = Localizations.DefaultFallbackLocalization;
+
         Localization = localization;
         Faker = new Faker(Localization);
         Debug.WriteLine("Current localization : " + localization);
