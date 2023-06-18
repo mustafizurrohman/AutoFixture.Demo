@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
-#pragma warning disable S1133
+﻿#pragma warning disable S1133
 
 namespace AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
 

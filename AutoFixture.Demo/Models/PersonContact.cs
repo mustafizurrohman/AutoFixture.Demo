@@ -15,8 +15,8 @@ public class PersonContact
 
     public override string ToString()
     {
-        return Person.ToString() 
+        return Person 
             + Environment.NewLine
-            + Contact.ToString();
+            + Contact;
     }
 }

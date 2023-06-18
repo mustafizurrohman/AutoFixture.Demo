@@ -1,8 +1,4 @@
-﻿using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
-using FluentAssertions;
-
-namespace AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
+﻿namespace AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
 
 public static class DirectoryInfoAssertionsExtensions
 {

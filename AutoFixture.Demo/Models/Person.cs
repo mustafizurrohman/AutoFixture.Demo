@@ -25,7 +25,7 @@ public class Person
     
     public string FullName => FirstName + " " + LastName;
 
-    public string Age => DateOfBirth.GetAgeAsString();
+    public string Age => DateOfBirth.ToFriendlyAge();
 
     // TODO: Uncomment and show demo
     // public string RandomData { get; set; }

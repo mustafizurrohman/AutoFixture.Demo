@@ -63,6 +63,8 @@ public static class Localizations
     // Change if and as needed
     public const string DefaultLocalization = German;
 
+    #region -- Utility Methods -- 
+
     private static List<string> _allLocalizations = new();
 
     public static List<string> GetAllLocalizations()
@@ -78,6 +80,8 @@ public static class Localizations
 
         return _allLocalizations;
     }
+
+    #endregion
 }
 
  

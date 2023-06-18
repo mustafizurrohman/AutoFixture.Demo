@@ -1,7 +1,4 @@
-﻿using Newtonsoft.Json;
-using System.Text;
-
-namespace AutoFixture.Demo.Core.ExtensionMethods;
+﻿namespace AutoFixture.Demo.Core.ExtensionMethods;
 
 public static class ObjectExtensions
 {

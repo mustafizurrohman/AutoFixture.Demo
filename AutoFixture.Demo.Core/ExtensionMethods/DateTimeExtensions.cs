@@ -5,7 +5,7 @@ namespace AutoFixture.Demo.Core.ExtensionMethods;
 
 public static class DateTimeExtensions
 {
-    public static string GetAgeAsString(this DateTime dateOfBirth)
+    public static string ToFriendlyAge(this DateTime dateOfBirth)
     {
         var timeDiffInMilliseconds = (DateTime.Now - dateOfBirth).TotalMilliseconds;
 
