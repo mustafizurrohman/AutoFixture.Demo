@@ -67,7 +67,7 @@ public static class Localizations
 
     private static List<string> _allLocalizations = new();
 
-    public static List<string> GetAllLocalizations()
+    public static IReadOnlyList<string> GetAllLocalizations()
     {
         if (_allLocalizations.Count != 0)
             return _allLocalizations;

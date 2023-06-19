@@ -37,8 +37,8 @@ public class PersonTests : TestBase
         // ARRANGE
         var now = DateTime.Now;
 
-        var fixture = new Fixture();
-        fixture.Customize(new AllCustomization());
+        var fixture = new Fixture()
+            .Customize(new AllCustomization());
 
         // Set a fixed value of CreatedOn and use the rules in AllCustomization
         var personBuilder = fixture.Build<Person>()
@@ -50,10 +50,21 @@ public class PersonTests : TestBase
         OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
 
         // ASSERT
-        persons.Select(p => p.CreatedOn)
-            .Distinct()
-            .Should()
-            .HaveCount(1);
+        using (new AssertionScope()) 
+        {
+            persons.Select(p => p.CreatedOn)
+                .Distinct()
+                .First()
+                .Should()
+                .BeCloseTo(now, TimeSpan.FromMicroseconds(1),
+                    because: "Each person should have the same date of birth as specified above");
+
+            persons.Select(p => p.CreatedOn)
+                .Distinct()
+                .Should()
+                .HaveCount(1, 
+                    because: "All Persons should have only 1 fixed date of birth");
+        }        
     }
 
     [Fact]
@@ -63,8 +74,8 @@ public class PersonTests : TestBase
         var now = DateTime.Now;
         var oneWeekAgo = now.AddDays(7);
 
-        var fixture = new Fixture();
-        fixture.Customize(new AllCustomization());
+        var fixture = new Fixture()
+            .Customize(new AllCustomization());
 
         // Set a fixed value of CreatedOn and use the rules in AllCustomization
         var person = fixture.Build<Person>()

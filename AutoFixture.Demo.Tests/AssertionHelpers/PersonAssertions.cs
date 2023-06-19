@@ -25,7 +25,7 @@ public static class PersonAssertions
 
         person.FirstName
             .Should()
-            .Match(ch => ch.All(char.IsLetter), because: "Firstname should not contain numbers or special characters");
+            .Match(ch => ch.All(char.IsLetter), because: "FirstName should not contain numbers or special characters");
 
         person.LastName
             .Should()
@@ -33,7 +33,7 @@ public static class PersonAssertions
 
         person.LastName
             .Should()
-            .Match(ch => ch.All(char.IsLetter), because: "Lastname should not contain numbers or special characters");
+            .Match(ch => ch.All(char.IsLetter), because: "LastName should not contain numbers or special characters");
 
         person.FullName
             .Should()
