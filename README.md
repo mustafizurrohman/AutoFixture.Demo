@@ -21,6 +21,11 @@ Note that in a real world scenario such custmomization of the AutoFixture pipeli
 is completely unnecessary and defeates the purpose of using AutoFixture. This is done
 here only for demonstration purposes.
 
-For Assertions ([FluentAssertions](https://fluentassertions.com/)) is used. Please refer
-to the use of extension methods for assertions.
+For Assertions [FluentAssertions](https://fluentassertions.com/) is used. Please refer
+to the use of extension methods for assertions in the following namespace-
 
+```cs
+AutoFixture.Demo.Tests.AssertionHelpers
+```
+
+Have fun writing better tests with AutoFixture and FluentAssertions. 
