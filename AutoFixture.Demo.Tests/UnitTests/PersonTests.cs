@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Core.Constants;
+﻿using System.Collections.Immutable;
+using AutoFixture.Demo.Core.Constants;
 using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
@@ -45,7 +46,8 @@ public class PersonTests : TestBase
             .With(p => p.CreatedOn, now);
             
         // ACT
-        var persons = personBuilder.CreateMany();
+        var persons = personBuilder.CreateMany()
+            .ToImmutableList();
 
         OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
 

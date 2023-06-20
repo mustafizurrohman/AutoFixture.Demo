@@ -75,7 +75,7 @@ public static class Localizations
         _allLocalizations =  typeof(Localizations)
             .GetFields(BindingFlags.Public | BindingFlags.Static)
             .Where(f => f.FieldType == typeof(string))
-            .Select(f => (string)f.GetValue(string.Empty)! ?? string.Empty)
+            .Select(f => (string)f.GetValue(string.Empty)!)
             .ToList();
 
         return _allLocalizations;

@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Core.Constants;
+﻿using System.Collections.Immutable;
+using AutoFixture.Demo.Core.Constants;
 using AutoFixture.Demo.Tests.AssertionHelpers;
 #pragma warning disable S125
 
@@ -74,7 +75,7 @@ public class ContactTests : TestBase
 
         // Act
         var persons = personBuilder.CreateMany(num)
-            .ToList();
+            .ToImmutableList();
 
         PrintObject(persons);
 

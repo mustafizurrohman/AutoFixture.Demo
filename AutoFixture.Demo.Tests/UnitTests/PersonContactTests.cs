@@ -1,4 +1,5 @@
-﻿using AutoFixture.Demo.Core.Constants;
+﻿using System.Collections.Immutable;
+using AutoFixture.Demo.Core.Constants;
 using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
@@ -52,7 +53,7 @@ public class PersonContactTests : TestBase
         // Create PersonContact while specifying how many of it we need- default is 3
         var personContacts = fixture.Build<PersonContact>()
             .CreateMany(num)
-            .ToList();
+            .ToImmutableList();
 
         PrintObject(personContacts);
 
