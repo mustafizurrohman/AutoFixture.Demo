@@ -17,7 +17,7 @@ AutoFixture.Demo.Customizations.SpecimenBuilders
 ```
 uses Bogus for simplification. 
 
-Note that in a real world scenario such custmomization of the AutoFixture pipeline
+> :warning: **Note:** In a real world scenario such custmomization of the AutoFixture pipeline
 is completely unnecessary and defeates the purpose of using AutoFixture. This is done
 here only for demonstration purposes.
 
