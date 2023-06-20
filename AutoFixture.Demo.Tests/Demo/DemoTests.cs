@@ -4,19 +4,19 @@ using AutoFixture.Demo.Tests.UnitTests;
 
 namespace AutoFixture.Demo.Tests.Demo;
 
-public class DemoTests : TestBase
+/// <summary>
+/// Using primary constructor- new C# 12 feature
+/// </summary>
+/// <param name="outputHelper"></param>
+public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
 {
-    public DemoTests(ITestOutputHelper outputHelper) 
-        : base(outputHelper)
-    {
-
-    }
 
     /// <summary>
     /// Demo 1 : 
     /// This does generates person and checks that the generated values are in accordance
     /// to the business rules
     /// TODO: Change customization and see effects
+    /// TODO: Add new property to person and demonstrate that no refactor is necessary here
     /// </summary>
     /// <param name="persons"></param>
     [Theory]
