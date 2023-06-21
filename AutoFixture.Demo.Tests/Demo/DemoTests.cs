@@ -55,7 +55,7 @@ public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
         // ACT
         var persons = personBuilder.CreateMany().ToImmutableList();
 
-        OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
+        PrintObject(persons);
 
         // ASSERT
         using (new AssertionScope())
@@ -93,7 +93,7 @@ public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
             .With(p => p.CreatedOn, now)
             .Create();
 
-        OutputHelper.WriteLine(person.ToFormattedJsonFailSafe());
+        PrintObject(person);
 
         // ACT
         var action = () => person.UpdateDateOfBirth(oneWeekAgo);
@@ -153,7 +153,7 @@ public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
         // Assert
         // Assert that the send method was called the same number of times 
         // as there are messages in the buffer
-        // We do not care about details of EmailMessage
+        // We do not care about contents of EmailMessage
         mockGateway.Verify(mg => mg.Send(It.IsAny<EmailMessage>()), Times.Exactly(messages.Count));
     }
 

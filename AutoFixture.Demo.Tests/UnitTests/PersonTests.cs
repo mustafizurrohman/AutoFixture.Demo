@@ -22,7 +22,7 @@ public class PersonTests : TestBase
     //[AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
-        OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
+        PrintObject(persons);
 
         // ASSERT
         using (new AssertionScope())
@@ -49,7 +49,7 @@ public class PersonTests : TestBase
         var persons = personBuilder.CreateMany()
             .ToImmutableList();
 
-        OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
+        PrintObject(persons);
 
         // ASSERT
         using (new AssertionScope()) 
@@ -84,7 +84,7 @@ public class PersonTests : TestBase
             .With(p => p.CreatedOn, now)
             .Create();
 
-        OutputHelper.WriteLine(person.ToFormattedJsonFailSafe());
+        PrintObject(person);
 
         // ACT
         var action = () => person.UpdateDateOfBirth(oneWeekAgo);

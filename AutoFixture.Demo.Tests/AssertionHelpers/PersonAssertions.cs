@@ -66,7 +66,7 @@ public static class PersonAssertions
     }
 
     /// <summary>
-    /// Assert that a IEnumerable of Person has valid attributes / are valid
+    /// Assert that a IEnumerable of Person has valid attributes / are valid.
     /// Please enclose with a new assertion scope, if necessary
     /// </summary>
     /// <param name="persons">IEnumerable of Persons to assert</param>
