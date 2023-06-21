@@ -35,6 +35,7 @@ public static class ContactAssertions
     public static void ShouldBeValidContacts(this IEnumerable<Contact> contacts)
     {
         contacts.Should()
-            .AllSatisfy(contact => contact.ShouldBeValidContact());
+            .AllSatisfy(contact => contact.ShouldBeValidContact(),
+                because: "Each contact in the IEnumerable should be a valid person according to the validation rules.");
     }
 }

@@ -8,7 +8,7 @@ namespace AutoFixture.Demo.Tests.Demo;
 /// <summary>
 /// Using primary constructor- new C# 12 feature
 /// </summary>
-/// <param name="outputHelper"></param>
+/// <param name="outputHelper">Output helper helps us in logging info in the debug screen</param>
 public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
 {
 
@@ -26,7 +26,7 @@ public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
     [AutoDataCustom(localization: Localizations.German)]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
-        OutputHelper.WriteLine(persons.ToFormattedJsonFailSafe());
+        PrintObject(persons);
 
         // ASSERT
         using (new AssertionScope())
