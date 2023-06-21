@@ -74,7 +74,7 @@ public class PersonTests : TestBase
     {
         // ARRANGE
         var now = DateTime.Now;
-        var oneWeekAgo = now.AddDays(7);
+        var oneWeekInTheFuture = now.AddDays(7);
 
         var fixture = new Fixture()
             .Customize(new AllCustomization());
@@ -87,7 +87,7 @@ public class PersonTests : TestBase
         PrintObject(person);
 
         // ACT
-        var action = () => person.UpdateDateOfBirth(oneWeekAgo);
+        var action = () => person.UpdateDateOfBirth(oneWeekInTheFuture);
 
         // ASSERT
         action.Should()
