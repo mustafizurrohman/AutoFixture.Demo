@@ -12,7 +12,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
     [AutoData]
     public void VerifyThatContactsAreCorrectlyGeneratedWithoutFixtureCustomization(List<Contact> contacts)
     {
-        PrintObject(contacts);
+        PrintObjectInDebug(contacts);
 
         using (new AssertionScope())
         {
@@ -25,7 +25,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
     // [AutoDataContact]
     public void VerifyThatContactsAreCorrectlyGeneratedWithFixtureCustomization(List<Contact> contacts)
     {
-        PrintObject(contacts);
+        PrintObjectInDebug(contacts);
 
         using (new AssertionScope())
         {
@@ -49,7 +49,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
         var persons = personBuilder.CreateMany()
             .ToList();
 
-        PrintObject(persons);
+        PrintObjectInDebug(persons);
 
         // Assert
         using (new AssertionScope())
@@ -72,7 +72,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
         var persons = personBuilder.CreateMany(num)
             .ToImmutableList();
 
-        PrintObject(persons);
+        PrintObjectInDebug(persons);
 
         // Assert
         using (new AssertionScope())

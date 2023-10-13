@@ -17,7 +17,7 @@ public class PersonContactTests(ITestOutputHelper outputHelper)
     // [AutoDataPerson]
     public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1(List<PersonContact> personContacts)
     {
-        PrintObject(personContacts);
+        PrintObjectInDebug(personContacts);
 
         using (new AssertionScope())
         {
@@ -51,7 +51,7 @@ public class PersonContactTests(ITestOutputHelper outputHelper)
             .CreateMany(num)
             .ToImmutableList();
 
-        PrintObject(personContacts);
+        PrintObjectInDebug(personContacts);
 
         // Assert
         using (new AssertionScope())

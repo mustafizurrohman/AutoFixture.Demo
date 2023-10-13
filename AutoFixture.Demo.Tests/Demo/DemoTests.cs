@@ -27,7 +27,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
     [AutoDataCustom(localization: Localizations.German)]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
-        PrintObject(persons);
+        PrintObjectInDebug(persons);
 
         // ASSERT
         using (new AssertionScope())
@@ -56,7 +56,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
         // ACT
         var persons = personBuilder.CreateMany().ToImmutableList();
 
-        PrintObject(persons);
+        PrintObjectInDebug(persons);
 
         // ASSERT
         using (new AssertionScope())
@@ -94,7 +94,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
             .With(p => p.CreatedOn, now)
             .Create();
 
-        PrintObject(person);
+        PrintObjectInDebug(person);
 
         // ACT
         var action = () => person.UpdateDateOfBirth(oneWeekInTheFuture);

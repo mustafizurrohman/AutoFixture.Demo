@@ -19,7 +19,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
     //[AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
-        PrintObject(persons);
+        PrintObjectInDebug(persons);
 
         // ASSERT
         using (new AssertionScope())
@@ -46,7 +46,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
         var persons = personBuilder.CreateMany()
             .ToImmutableList();
 
-        PrintObject(persons);
+        PrintObjectInDebug(persons);
 
         // ASSERT
         using (new AssertionScope()) 
@@ -81,7 +81,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
             .With(p => p.CreatedOn, now)
             .Create();
 
-        PrintObject(person);
+        PrintObjectInDebug(person);
 
         // ACT
         var action = () => person.UpdateDateOfBirth(oneWeekInTheFuture);

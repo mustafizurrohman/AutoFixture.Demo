@@ -14,7 +14,7 @@ public abstract class TestBase
     /// Prints an object in as formatted JSON in Test Console (only in Debug mode)
     /// </summary>
     /// <param name="obj">Object to print</param>
-    protected void PrintObject(object obj)
+    protected void PrintObjectInDebug(object obj)
     {
 #if DEBUG
         OutputHelper.WriteLine(obj.ToFormattedJsonFailSafe());
