@@ -7,14 +7,9 @@ namespace AutoFixture.Demo.Customizations.Attributes;
 /// Usage [ListLength(xxx)]
 /// </summary>
 [AttributeUsage(AttributeTargets.Parameter)]
-public sealed class ListLengthAttribute : CustomizeAttribute 
+public sealed class ListLengthAttribute(int length) : CustomizeAttribute 
 { 
-    private readonly int Length;
-
-    public ListLengthAttribute(int length)
-    {
-        Length = length;
-    }
+    private readonly int Length = length;
 
     // TODO: Finish this 
     public override ICustomization GetCustomization(ParameterInfo parameter)

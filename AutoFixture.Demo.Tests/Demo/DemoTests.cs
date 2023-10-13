@@ -9,7 +9,8 @@ namespace AutoFixture.Demo.Tests.Demo;
 /// Using primary constructor- new C# 12 feature
 /// </summary>
 /// <param name="outputHelper">Output helper helps us in logging info in the debug screen</param>
-public class DemoTests(ITestOutputHelper outputHelper) : TestBase(outputHelper)
+public class DemoTests(ITestOutputHelper outputHelper) 
+    : TestBase(outputHelper)
 {
 
     /// <summary>

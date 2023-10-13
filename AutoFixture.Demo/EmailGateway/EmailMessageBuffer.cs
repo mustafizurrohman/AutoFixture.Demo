@@ -1,16 +1,11 @@
 ﻿namespace AutoFixture.Demo.EmailGateway;
 
-public class EmailMessageBuffer
+public class EmailMessageBuffer(IEmailGateway emailGateway)
 {
     private readonly List<EmailMessage> _emails = new();
 
-    public EmailMessageBuffer(IEmailGateway emailGateway)
-    {
-        EmailGateway = emailGateway;
-    }
+    private IEmailGateway EmailGateway { get; } = emailGateway;
 
-    private IEmailGateway EmailGateway { get; }
-    
     public int UnsentMessagesCount => _emails.Count;
 
     public int ImportantUnsentMessagesCount => _emails.Count(email => email.IsImportant);

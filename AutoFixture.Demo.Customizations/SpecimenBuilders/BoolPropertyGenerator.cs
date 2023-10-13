@@ -1,14 +1,8 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class BoolPropertyGenerator
-    : PropertyGeneratorBase, ISpecimenBuilder
+internal class BoolPropertyGenerator(string localization = Localizations.DefaultLocalization)
+        : PropertyGeneratorBase(localization), ISpecimenBuilder
 {
-    public BoolPropertyGenerator(string localization = Localizations.DefaultLocalization)
-        : base(localization)
-    {
-
-    }
-
     public object Create(object request, ISpecimenContext context)
     {
         if (!IsPropertyOfType(request, typeof(bool)))

@@ -11,14 +11,9 @@
 //    }
 //}
 
-public class PersonID
+public class PersonID(string id)
 {
-    private string ID { get; }
-
-    public PersonID(string id)
-    {
-        ID = id;
-    }
+    private string ID { get; } = id;
 
     public override string ToString()
     {

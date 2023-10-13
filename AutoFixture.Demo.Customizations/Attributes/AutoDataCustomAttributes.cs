@@ -8,39 +8,24 @@ namespace AutoFixture.Demo.Customizations.Attributes;
 /// All customizations
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataCustomAttribute : AutoDataAttribute
+public sealed class AutoDataCustomAttribute(string localization = Localizations.DefaultLocalization) : AutoDataAttribute(() => new Fixture().Customize(new AllCustomization(localization)))
 {
-    public AutoDataCustomAttribute(string localization = Localizations.DefaultLocalization)
-        : base(() => new Fixture().Customize(new AllCustomization(localization)))
-    {
-
-    }
 }
 
 /// <summary>
 /// Customizations for person
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataPersonAttribute : AutoDataAttribute
+public sealed class AutoDataPersonAttribute(string localization = Localizations.DefaultLocalization) : AutoDataAttribute(() => new Fixture().Customize(new PersonCustomization(localization)))
 {
-    public AutoDataPersonAttribute(string localization = Localizations.DefaultLocalization)
-        : base(() => new Fixture().Customize(new PersonCustomization(localization)))
-    {
-
-    }
 }
 
 /// <summary>
 /// Customizations for Contact
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataContactAttribute : AutoDataAttribute
+public sealed class AutoDataContactAttribute(string localization = Localizations.DefaultLocalization) : AutoDataAttribute(() => new Fixture().Customize(new ContactCustomization(localization)))
 {
-    public AutoDataContactAttribute(string localization = Localizations.DefaultLocalization)
-        : base(() => new Fixture().Customize(new ContactCustomization(localization)))
-    {
-
-    }
 }
 
 /// <summary>

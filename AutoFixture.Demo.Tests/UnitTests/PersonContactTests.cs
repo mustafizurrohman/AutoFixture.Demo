@@ -4,13 +4,9 @@ using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
-public class PersonContactTests : TestBase
+public class PersonContactTests(ITestOutputHelper outputHelper) 
+    : TestBase(outputHelper)
 {
-    
-    public PersonContactTests(ITestOutputHelper outputHelper) 
-        : base(outputHelper)
-    {
-    }
 
     /// <summary>
     /// Possibility 1: personContacts will have 3 elements

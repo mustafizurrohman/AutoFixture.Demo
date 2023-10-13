@@ -1,12 +1,8 @@
 ﻿namespace AutoFixture.Demo.Tests.UnitTests;
 
-public class EmailGatewayTests : TestBase
+public class EmailGatewayTests(ITestOutputHelper outputHelper) 
+    : TestBase(outputHelper)
 {
-    public EmailGatewayTests(ITestOutputHelper outputHelper)
-        : base(outputHelper)
-    {
-    }
-
     [Fact]
     public void SendEmailToGateway_ManualMoq()
     {

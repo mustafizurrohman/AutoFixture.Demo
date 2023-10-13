@@ -2,14 +2,9 @@
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class NameCustomization : ICustomization
+public class NameCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public NameCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -19,14 +14,9 @@ public class NameCustomization : ICustomization
     }
 }
 
-public class EmailCustomization : ICustomization
+public class EmailCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public EmailCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -36,14 +26,9 @@ public class EmailCustomization : ICustomization
     }
 }
 
-public class DobCustomization : ICustomization
+public class DobCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public DobCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -53,14 +38,9 @@ public class DobCustomization : ICustomization
     }
 }
 
-public class PhoneNumberCustomization : ICustomization
+public class PhoneNumberCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public PhoneNumberCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -70,14 +50,9 @@ public class PhoneNumberCustomization : ICustomization
     }
 }
 
-public class StreetCustomization : ICustomization
+public class StreetCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public StreetCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -87,14 +62,9 @@ public class StreetCustomization : ICustomization
     }
 }
 
-public class CityCustomization : ICustomization
+public class CityCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public CityCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -104,14 +74,9 @@ public class CityCustomization : ICustomization
     }
 }
 
-public class PersonIDCustomization : ICustomization
+public class PersonIDCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public PersonIDCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {
@@ -121,14 +86,9 @@ public class PersonIDCustomization : ICustomization
     }
 }
 
-public class BoolCustomization : ICustomization
+public class BoolCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
 {
-    private string Localization { get; }
-
-    public BoolCustomization(string localization = Localizations.DefaultLocalization)
-    {
-        Localization = localization;
-    }
+    private string Localization { get; } = localization;
 
     public void Customize(IFixture fixture)
     {

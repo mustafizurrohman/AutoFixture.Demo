@@ -1,13 +1,8 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class NamePropertyGenerator 
-    : PropertyGeneratorBase, ISpecimenBuilder
+internal class NamePropertyGenerator(string localization = Localizations.DefaultLocalization)
+        : PropertyGeneratorBase(localization), ISpecimenBuilder
 {
-    public NamePropertyGenerator(string localization = Localizations.DefaultLocalization) 
-        : base(localization)
-    {
-    }
-
     public object Create(object request, ISpecimenContext context)
     {
         if (IsFirstNameProperty(request))

@@ -2,16 +2,10 @@
 // ReSharper disable MemberCanBePrivate.Global
 namespace AutoFixture.Demo.Models;
 
-public class PersonContact
+public class PersonContact(Person person, Contact contact)
 {
-    public Person Person { get; init; }
-    public Contact Contact { get; init; }
-
-    public PersonContact(Person person, Contact contact)
-    {
-        Person = person;
-        Contact = contact;
-    }
+    public Person Person { get; init; } = person;
+    public Contact Contact { get; init; } = contact;
 
     public override string ToString()
     {

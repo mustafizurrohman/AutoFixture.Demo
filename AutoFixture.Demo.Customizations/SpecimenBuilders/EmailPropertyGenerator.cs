@@ -1,13 +1,8 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class EmailPropertyGenerator 
-    : PropertyGeneratorBase, ISpecimenBuilder
-{    
-    public EmailPropertyGenerator(string localization = Localizations.DefaultLocalization)
-        : base(localization)
-    {
-    }
-
+internal class EmailPropertyGenerator(string localization = Localizations.DefaultLocalization)
+        : PropertyGeneratorBase(localization), ISpecimenBuilder
+{
     public object Create(object request, ISpecimenContext context)
     {
         if (IsEmailProperty(request))

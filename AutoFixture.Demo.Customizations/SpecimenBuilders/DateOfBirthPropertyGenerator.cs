@@ -1,13 +1,8 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class DateOfBirthPropertyGenerator 
-    : PropertyGeneratorBase, ISpecimenBuilder
+internal class DateOfBirthPropertyGenerator(string localization = Localizations.DefaultLocalization)
+        : PropertyGeneratorBase(localization), ISpecimenBuilder
 {
-    public DateOfBirthPropertyGenerator(string localization = Localizations.DefaultLocalization)
-        : base(localization)
-    {
-    }
-
     public object Create(object request, ISpecimenContext context)
     {
         if (!IsDateOfBirthProperty(request))

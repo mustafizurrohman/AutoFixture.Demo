@@ -5,14 +5,9 @@ using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
-public class ContactTests : TestBase
+public class ContactTests(ITestOutputHelper outputHelper) 
+    : TestBase(outputHelper)
 {
-    public ContactTests(ITestOutputHelper outputHelper)
-        : base(outputHelper)
-    {
-    }
-
-
     [Theory]
     [AutoData]
     public void VerifyThatContactsAreCorrectlyGeneratedWithoutFixtureCustomization(List<Contact> contacts)

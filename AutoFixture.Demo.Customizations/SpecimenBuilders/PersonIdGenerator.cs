@@ -2,14 +2,9 @@
 
 namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class PersonIdGenerator
-    : PropertyGeneratorBase, ISpecimenBuilder
+internal class PersonIdGenerator(string localization = Localizations.DefaultLocalization)
+        : PropertyGeneratorBase(localization), ISpecimenBuilder
 {
-    public PersonIdGenerator(string localization = Localizations.DefaultLocalization)
-        : base(localization)
-    {
-
-    }
 
     /// <summary>
     /// Here we are defining how variables with type PersonID should be generated.

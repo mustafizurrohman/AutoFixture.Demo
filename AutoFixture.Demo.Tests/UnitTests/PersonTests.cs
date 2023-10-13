@@ -4,12 +4,9 @@ using AutoFixture.Demo.Tests.AssertionHelpers;
 
 namespace AutoFixture.Demo.Tests.UnitTests;
 
-public class PersonTests : TestBase
+public class PersonTests(ITestOutputHelper outputHelper) 
+    : TestBase(outputHelper)
 {
-    public PersonTests(ITestOutputHelper outputHelper)
-        : base(outputHelper)
-    {
-    }
 
     /// <summary>
     /// This does generates person and checks that the generated values are in accordance

@@ -22,16 +22,9 @@ namespace AutoFixture.Demo.Core.ExtensionMethods.FluentAssertions;
 //}
 
 
-public class CustomStringAssertions
-    : ReferenceTypeAssertions<string, StringAssertions>
+public class CustomStringAssertions(string inputString)
+        : ReferenceTypeAssertions<string, StringAssertions>(inputString)
 {
-
-    public CustomStringAssertions(string inputString)
-        : base(inputString)
-    {
-
-    }
-
     protected override string Identifier => "string";
 
     [CustomAssertion]

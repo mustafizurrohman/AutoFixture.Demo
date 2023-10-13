@@ -8,14 +8,9 @@ public static class DirectoryInfoAssertionsExtensions
     }
 }
 
-public class DirectoryInfoAssertions :
-    ReferenceTypeAssertions<DirectoryInfo, DirectoryInfoAssertions>
+public class DirectoryInfoAssertions(DirectoryInfo instance) :
+    ReferenceTypeAssertions<DirectoryInfo, DirectoryInfoAssertions>(instance)
 {
-    public DirectoryInfoAssertions(DirectoryInfo instance)
-        : base(instance)
-    {
-    }
-
     protected override string Identifier => "directory";
 
     public AndConstraint<DirectoryInfoAssertions> ContainFile(

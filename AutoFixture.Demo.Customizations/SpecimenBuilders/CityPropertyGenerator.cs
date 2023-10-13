@@ -1,13 +1,8 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
 
-internal class CityPropertyGenerator
-    : PropertyGeneratorBase, ISpecimenBuilder
+internal class CityPropertyGenerator(string localization = Localizations.DefaultLocalization)
+        : PropertyGeneratorBase(localization), ISpecimenBuilder
 {
-    public CityPropertyGenerator(string localization = Localizations.DefaultLocalization)
-        : base(localization)
-    {
-    }
-
     public object Create(object request, ISpecimenContext context)
     {
         if (!IsCityProperty(request))
