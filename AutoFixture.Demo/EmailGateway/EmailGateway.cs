@@ -2,7 +2,8 @@
 
 namespace AutoFixture.Demo.EmailGateway;
 
-public class EmailGateway : IEmailGateway
+public class EmailGateway 
+    : IEmailGateway
 {
     public void Send(EmailMessage message)
     {

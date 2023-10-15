@@ -1,6 +1,7 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
 
 using System.Reflection;
+// ReSharper disable UnusedMember.Global
 
 namespace AutoFixture.Demo.Core.Constants;
 

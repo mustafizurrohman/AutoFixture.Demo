@@ -2,7 +2,8 @@
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class NameCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class NameCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -14,7 +15,8 @@ public class NameCustomization(string localization = Localizations.DefaultLocali
     }
 }
 
-public class EmailCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class EmailCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -26,7 +28,8 @@ public class EmailCustomization(string localization = Localizations.DefaultLocal
     }
 }
 
-public class DobCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class DobCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -38,7 +41,8 @@ public class DobCustomization(string localization = Localizations.DefaultLocaliz
     }
 }
 
-public class PhoneNumberCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class PhoneNumberCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -50,7 +54,8 @@ public class PhoneNumberCustomization(string localization = Localizations.Defaul
     }
 }
 
-public class StreetCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class StreetCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -62,7 +67,8 @@ public class StreetCustomization(string localization = Localizations.DefaultLoca
     }
 }
 
-public class CityCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class CityCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -74,7 +80,8 @@ public class CityCustomization(string localization = Localizations.DefaultLocali
     }
 }
 
-public class PersonIDCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class PersonIDCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 
@@ -86,7 +93,8 @@ public class PersonIDCustomization(string localization = Localizations.DefaultLo
     }
 }
 
-public class BoolCustomization(string localization = Localizations.DefaultLocalization) : ICustomization
+public class BoolCustomization(string localization = Localizations.DefaultLocalization) 
+    : ICustomization
 {
     private string Localization { get; } = localization;
 

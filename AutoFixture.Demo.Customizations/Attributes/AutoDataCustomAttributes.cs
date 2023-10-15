@@ -8,7 +8,8 @@ namespace AutoFixture.Demo.Customizations.Attributes;
 /// All customizations
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataCustomAttribute(string localization = Localizations.DefaultLocalization) : AutoDataAttribute(() => new Fixture().Customize(new AllCustomization(localization)))
+public sealed class AutoDataCustomAttribute(string localization = Localizations.DefaultLocalization) 
+    : AutoDataAttribute(() => new Fixture().Customize(new AllCustomization(localization)))
 {
 }
 
@@ -16,7 +17,8 @@ public sealed class AutoDataCustomAttribute(string localization = Localizations.
 /// Customizations for person
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataPersonAttribute(string localization = Localizations.DefaultLocalization) : AutoDataAttribute(() => new Fixture().Customize(new PersonCustomization(localization)))
+public sealed class AutoDataPersonAttribute(string localization = Localizations.DefaultLocalization) 
+    : AutoDataAttribute(() => new Fixture().Customize(new PersonCustomization(localization)))
 {
 }
 
@@ -24,7 +26,8 @@ public sealed class AutoDataPersonAttribute(string localization = Localizations.
 /// Customizations for Contact
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataContactAttribute(string localization = Localizations.DefaultLocalization) : AutoDataAttribute(() => new Fixture().Customize(new ContactCustomization(localization)))
+public sealed class AutoDataContactAttribute(string localization = Localizations.DefaultLocalization) 
+    : AutoDataAttribute(() => new Fixture().Customize(new ContactCustomization(localization)))
 {
 }
 
@@ -32,7 +35,8 @@ public sealed class AutoDataContactAttribute(string localization = Localizations
 /// AutoMoq customization
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoMoqDataAttribute : AutoDataAttribute
+public sealed class AutoMoqDataAttribute 
+    : AutoDataAttribute
 {
     public AutoMoqDataAttribute()
         : base(() => new Fixture().Customize(new AutoMoqCustomization()))
