@@ -15,7 +15,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
     /// <param name="persons"></param>
     [Theory]
     // [AutoData]
-    [AutoDataCustom(localization: Localizations.Chinese)]
+    [AutoDataCustom(localization: Localizations.German)]
     //[AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {

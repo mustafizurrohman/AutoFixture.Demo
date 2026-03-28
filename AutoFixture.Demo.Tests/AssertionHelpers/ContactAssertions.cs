@@ -12,7 +12,7 @@ public static class ContactAssertions
     {
         contact.Email
             .Should()
-            .NotBeNullOrWhiteSpace();
+            .BeValidEmail();
 
         contact.PhoneNumber
             .Should()

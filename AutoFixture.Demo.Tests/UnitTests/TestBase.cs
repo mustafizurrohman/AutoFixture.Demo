@@ -1,14 +1,8 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
 namespace AutoFixture.Demo.Tests.UnitTests;
 
-public abstract class TestBase
+public abstract class TestBase(ITestOutputHelper outputHelper)
 {
-    protected ITestOutputHelper OutputHelper { get; }
-
-    protected TestBase(ITestOutputHelper outputHelper)
-    {
-        OutputHelper = outputHelper;
-    }
 
     /// <summary>
     /// Prints an object in as formatted JSON in Test Console (only in Debug mode)
@@ -17,7 +11,7 @@ public abstract class TestBase
     protected void PrintObjectInDebug(object obj)
     {
 #if DEBUG
-        OutputHelper.WriteLine(obj.ToFormattedJsonFailSafe());
+        outputHelper.WriteLine(obj.ToFormattedJsonFailSafe());
 #endif
     }
 }
