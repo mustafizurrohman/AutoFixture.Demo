@@ -107,4 +107,14 @@ public abstract class PropertyGeneratorBase
 
         return propertyName.ContainStrings("city");
     }
+
+    protected static bool IsEmailMessageProperty(object request)
+    {
+        if (!IsStringProperty(request))
+            return false;
+
+        var propertyName = GetPropertyName(request);
+
+        return propertyName.ContainStrings("messageBody");
+    }
 }

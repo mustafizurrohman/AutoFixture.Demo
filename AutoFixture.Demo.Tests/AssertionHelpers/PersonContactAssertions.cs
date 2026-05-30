@@ -1,31 +1,67 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
+using FluentAssertions;
+using FluentAssertions.Collections;
+using FluentAssertions.Execution;
+using FluentAssertions.Primitives;
+
 namespace AutoFixture.Demo.Tests.AssertionHelpers;
 
 public static class PersonContactAssertions
 {
     /// <summary>
-    /// Assert that a PersonContact has valid attributes / is valid
-    /// Please enclose with a new assertion scope, if necessary
+    /// Asserts that a <see cref="PersonContact"/> has a valid person and contact.
     /// </summary>
-    /// <param name="personContact">Instance of PersonContact to assert</param>
-    public static void ShouldBeValidPersonContact(this PersonContact personContact)
+    [CustomAssertion]
+    public static AndConstraint<ObjectAssertions> BeValidPersonContact(
+        this ObjectAssertions assertions)
     {
+        assertions.Subject
+            .Should()
+            .BeAssignableTo<PersonContact>(because: "the subject should be a person contact");
+
+        if (assertions.Subject is not PersonContact personContact)
+        {
+            return new AndConstraint<ObjectAssertions>(assertions);
+        }
+
+        using var _ = new AssertionScope(nameof(PersonContact));
+
         personContact.Person
-            .ShouldBeValidPerson();
+            .Should()
+            .BeValidPerson();
 
         personContact.Contact
-            .ShouldBeValidContact();
+            .Should()
+            .BeValidContact();
+
+        return new AndConstraint<ObjectAssertions>(assertions);
     }
 
     /// <summary>
-    /// Assert that a IEnumerable of PersonContacts has valid attributes / are valid
-    /// Please enclose with a new assertion scope, if necessary
+    /// Asserts that every <see cref="PersonContact"/> in a collection is valid.
     /// </summary>
-    /// <param name="personContacts">IEnumerable of PersonContacts to assert</param>
-    public static void ShouldBeValidPersonContacts(this IEnumerable<PersonContact> personContacts)
+    [CustomAssertion]
+    public static AndConstraint<GenericCollectionAssertions<PersonContact>> BeValidPersonContacts(
+        this GenericCollectionAssertions<PersonContact> assertions)
     {
-        personContacts
+        assertions.Subject
             .Should()
-            .AllSatisfy(pc => pc.ShouldBeValidPersonContact());
+            .NotBeNull(because: "the person contact collection should not be null");
+
+        if (assertions.Subject is null)
+        {
+            return new AndConstraint<GenericCollectionAssertions<PersonContact>>(assertions);
+        }
+
+        assertions.Subject
+            .Should()
+            .AllSatisfy(personContact =>
+            {
+                personContact
+                    .Should()
+                    .BeValidPersonContact();
+            }, because: "each person contact in the collection should be valid");
+
+        return new AndConstraint<GenericCollectionAssertions<PersonContact>>(assertions);
     }
 }

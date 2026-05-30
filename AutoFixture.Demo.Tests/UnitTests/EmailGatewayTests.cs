@@ -17,7 +17,6 @@ public class EmailGatewayTests(ITestOutputHelper outputHelper)
         // Act
         sut.SendAll();
 
-        // Assert
         // Assert that the send method was called once 
         // since only one message was present in buffer
         // We do not care about details of EmailMessage
@@ -45,7 +44,6 @@ public class EmailGatewayTests(ITestOutputHelper outputHelper)
         // Act
         sut.SendAll();
 
-        // Assert
         // Assert that the send method was called the same number of times 
         // as there are messages in the buffer
         // We do not care about details of EmailMessage
@@ -73,7 +71,8 @@ public class EmailGatewayTests(ITestOutputHelper outputHelper)
         // Act
         sut.SendLimited(numberOfMessagesToSend);
 
-        // Assert- Verify that Send method was called exactly 'numberOfMessagesToSend' times
+        // Assert
+        // Verify that Send method was called exactly 'numberOfMessagesToSend' times
         mockGateway.Verify(mg => mg.Send(It.IsAny<EmailMessage>()), Times.Exactly(numberOfMessagesToSend));
     }
 

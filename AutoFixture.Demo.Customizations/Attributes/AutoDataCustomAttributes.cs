@@ -35,12 +35,5 @@ public sealed class AutoDataContactAttribute(string localization = Localizations
 /// AutoMoq customization
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoMoqDataAttribute 
-    : AutoDataAttribute
-{
-    public AutoMoqDataAttribute()
-        : base(() => new Fixture().Customize(new AutoMoqCustomization()))
-    {
-
-    }
-}
+public sealed class AutoMoqDataAttribute()
+    : AutoDataAttribute(() => new Fixture().Customize(new AutoMoqCustomization()));
