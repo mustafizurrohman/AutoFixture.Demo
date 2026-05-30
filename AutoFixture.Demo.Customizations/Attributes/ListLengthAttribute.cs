@@ -1,19 +1,103 @@
-﻿using AutoFixture.Xunit2;
+﻿#nullable enable
+
+using System.Collections;
 using System.Reflection;
+using AutoFixture.Xunit2;
+using Xunit;
 
 namespace AutoFixture.Demo.Customizations.Attributes;
 
-/// <summary>
-/// Usage [ListLength(xxx)]
-/// </summary>
-[AttributeUsage(AttributeTargets.Parameter)]
-public sealed class ListLengthAttribute(int length) : CustomizeAttribute 
-{ 
-    private readonly int Length = length;
+[AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
+public sealed class ListLengthAttribute : CustomizeAttribute
+{
+    private readonly int _length;
 
-    // TODO: Finish this 
+    public ListLengthAttribute(int length)
+    {
+        if (length < 0)
+        {
+            throw new ArgumentOutOfRangeException(
+                nameof(length),
+                "List length must be greater than or equal to 0.");
+        }
+
+        _length = length;
+    }
+
     public override ICustomization GetCustomization(ParameterInfo parameter)
     {
-        throw new NotImplementedException();
+        ArgumentNullException.ThrowIfNull(parameter);
+
+        EnsureUsedOnXunitTestMethod(parameter);
+        EnsureUsedOnListParameter(parameter);
+
+        return new ListLengthCustomization(parameter, _length);
+    }
+
+    private static void EnsureUsedOnXunitTestMethod(ParameterInfo parameter)
+    {
+        if (parameter.Member is not MethodInfo method)
+        {
+            throw new InvalidOperationException(
+                $"{nameof(ListLengthAttribute)} can only be used on test method parameters.");
+        }
+
+        var isXunitTestMethod = method
+            .GetCustomAttributes(inherit: true)
+            .OfType<FactAttribute>()
+            .Any();
+
+        if (!isXunitTestMethod)
+        {
+            throw new InvalidOperationException(
+                $"{nameof(ListLengthAttribute)} can only be used on parameters of xUnit test methods marked with [Fact] or [Theory].");
+        }
+    }
+
+    private static void EnsureUsedOnListParameter(ParameterInfo parameter)
+    {
+        if (!parameter.ParameterType.IsGenericType ||
+            parameter.ParameterType.GetGenericTypeDefinition() != typeof(List<>))
+        {
+            throw new InvalidOperationException(
+                $"{nameof(ListLengthAttribute)} can only be used on List<T> parameters.");
+        }
+    }
+
+    private sealed class ListLengthCustomization(ParameterInfo parameter, int length) : ICustomization
+    {
+        public void Customize(IFixture fixture)
+        {
+            ArgumentNullException.ThrowIfNull(fixture);
+
+            fixture.Customizations.Insert(
+                0,
+                new ListLengthSpecimenBuilder(parameter, length));
+        }
+    }
+
+    private sealed class ListLengthSpecimenBuilder(ParameterInfo parameter, int length) : ISpecimenBuilder
+    {
+        public object Create(object request, ISpecimenContext context)
+        {
+            ArgumentNullException.ThrowIfNull(context);
+
+            if (!Equals(request, parameter))
+            {
+                return new NoSpecimen();
+            }
+
+            var itemType = parameter.ParameterType.GetGenericArguments()[0];
+            var listType = typeof(List<>).MakeGenericType(itemType);
+
+            var list = (IList)Activator.CreateInstance(listType)!;
+
+            for (var i = 0; i < length; i++)
+            {
+                list.Add(context.Resolve(itemType));
+            }
+
+            return list;
+        }
     }
 }
