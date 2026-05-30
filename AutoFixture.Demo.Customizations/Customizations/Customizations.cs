@@ -105,3 +105,16 @@ public class BoolCustomization(string localization = Localizations.DefaultLocali
         fixture.Customizations.Add(new BoolPropertyGenerator(Localization));
     }
 }
+
+public class EmailBodyCustomization(string localization = Localizations.DefaultLocalization)
+    : ICustomization
+{
+    private string Localization { get; } = localization;
+
+    public void Customize(IFixture fixture)
+    {
+        ArgumentNullException.ThrowIfNull(fixture);
+
+        fixture.Customizations.Add(new EmailMessageBodyPropertyGenerator(Localization));
+    }
+}

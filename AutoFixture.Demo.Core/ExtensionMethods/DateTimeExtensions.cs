@@ -1,5 +1,4 @@
 ﻿using Humanizer;
-using Humanizer.Localisation;
 
 namespace AutoFixture.Demo.Core.ExtensionMethods;
 

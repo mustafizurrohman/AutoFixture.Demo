@@ -6,7 +6,8 @@
 public sealed class AllCustomization(string localization = Localizations.DefaultLocalization) : CompositeCustomization(
           new PersonCustomization(localization),
           new ContactCustomization(localization),
-          new BoolCustomization(localization)
+          new BoolCustomization(localization),
+          new EmailBodyCustomization(localization)
         )
 {
 }
@@ -33,7 +34,8 @@ public sealed class ContactCustomization(string localization = Localizations.Def
         new PhoneNumberCustomization(localization),
         new StreetCustomization(localization),
         new CityCustomization(localization),
-        new BoolCustomization(localization)
+        new BoolCustomization(localization),
+        new EmailBodyCustomization(localization)
         )
 {
 }

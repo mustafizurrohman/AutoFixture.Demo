@@ -15,7 +15,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
     /// <param name="persons"></param>
     [Theory]
     // [AutoData]
-    [AutoDataCustom(localization: Localizations.Chinese)]
+    [AutoDataCustom(localization: Localizations.German)]
     //[AutoDataPerson]
     public void VerifyThatPersonsAreCorrectlyGenerated(List<Person> persons)
     {
@@ -24,7 +24,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
         // ASSERT
         using (new AssertionScope())
         {
-            persons.ShouldBeValidPersons();
+            persons.Should().BeValidPersons();
         }
 
     }
@@ -88,7 +88,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
 
         // ASSERT
         action.Should()
-            .ThrowExactly<ArgumentException>();
+            .ThrowExactly<ArgumentOutOfRangeException>();
 
     }
 
