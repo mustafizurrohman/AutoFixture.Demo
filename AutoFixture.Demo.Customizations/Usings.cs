@@ -1,3 +1,5 @@
+global using AutoFixture;
+global using AutoFixture.Demo.Models;
 global using AutoFixture.Demo.Core.ExtensionMethods;
 global using AutoFixture.Demo.Core.Constants;
 global using AutoFixture.Kernel;
