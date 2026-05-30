@@ -1,4 +1,6 @@
-﻿using FluentAssertions.Primitives;
+﻿using FluentAssertions;
+using FluentAssertions.Execution;
+using FluentAssertions.Primitives;
 using System.Text.RegularExpressions;
 
 namespace AutoFixture.Demo.Tests;
@@ -15,17 +17,16 @@ public static class EmailAssertionExtensions
         string because = "",
         params object[] becauseArgs)
     {
-        string subject = assertions.Subject;
+        var subject = assertions.Subject;
 
-        Execute.Assertion
+        AssertionChain
+            .GetOrCreate()
+            .BecauseOf(because, becauseArgs)
             .ForCondition(!string.IsNullOrWhiteSpace(subject))
-            .BecauseOf(because, becauseArgs)
-            .FailWith("Expected {context:string} to be a valid email, but found <null> or empty.");
-
-        Execute.Assertion
-            .ForCondition(EmailRegex.IsMatch(subject))
-            .BecauseOf(because, becauseArgs)
-            .FailWith("Expected {context:string} to be a valid email, but '{0}' is not valid.", subject);
+            .FailWith("Expected {context:string} to be a valid email{reason}, but found <null> or empty.")
+            .Then
+            .ForCondition(subject is not null && EmailRegex.IsMatch(subject))
+            .FailWith("Expected {context:string} to be a valid email{reason}, but found {0}.", subject);
 
         return new AndConstraint<StringAssertions>(assertions);
     }
