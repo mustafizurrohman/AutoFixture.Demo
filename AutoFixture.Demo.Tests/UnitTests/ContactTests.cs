@@ -9,7 +9,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
     : TestBase(outputHelper)
 {
     [Theory]
-    [AutoData]
+    [AutoDataCustom]
     public void VerifyThatContactsAreCorrectlyGeneratedWithoutFixtureCustomization(List<Contact> contacts)
     {
         PrintObjectInDebug(contacts);

@@ -88,7 +88,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
 
         // ASSERT
         action.Should()
-            .ThrowExactly<ArgumentException>();
+            .ThrowExactly<ArgumentOutOfRangeException>();
 
     }
 

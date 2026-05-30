@@ -101,7 +101,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
 
         // ASSERT
         action.Should()
-            .ThrowExactly<ArgumentException>();
+            .ThrowExactly<ArgumentOutOfRangeException>();
 
     }
 
