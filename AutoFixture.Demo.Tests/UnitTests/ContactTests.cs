@@ -16,7 +16,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
 
         using (new AssertionScope())
         {
-            contacts.ShouldBeValidContacts();
+            contacts.Should().BeValidContacts();
         }
     }
 
@@ -30,7 +30,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
         using (new AssertionScope())
         {
             contacts
-                .ShouldBeValidContacts();
+                .Should().BeValidContacts();
 
             contacts
                 .Should()
@@ -77,7 +77,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
         // Assert
         using (new AssertionScope())
         {
-            persons.ShouldBeValidPersons();
+            persons.Should().BeValidPersons();
         }
     }
 }

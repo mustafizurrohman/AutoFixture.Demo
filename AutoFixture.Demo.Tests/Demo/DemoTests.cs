@@ -32,7 +32,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
         // ASSERT
         using (new AssertionScope())
         {
-            persons.ShouldBeValidPersons();
+            persons.Should().BeValidPersons();
         }
 
     }
