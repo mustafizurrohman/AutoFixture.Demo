@@ -1,18 +1,23 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
+using FluentAssertions.Collections;
+using FluentAssertions.Primitives;
+
 namespace AutoFixture.Demo.Tests.AssertionHelpers;
 
 public static class ContactAssertions
 {
-    /// <summary>
-    /// Assert that a contact has valid attributes / is valid
-    /// Please enclose with a new assertion scope, if necessary
-    /// </summary>
-    /// <param name="contact">Instance of contact to assert</param>
-    public static void ShouldBeValidContact(this Contact contact)
+    public static AndConstraint<ObjectAssertions> BeValidContact(
+        this ObjectAssertions assertions)
     {
+        assertions.Subject
+            .Should()
+            .BeOfType<Contact>();
+
+        var contact = (Contact)assertions.Subject!;
+
         contact.Email
             .Should()
-            .NotBeNullOrWhiteSpace();
+            .BeValidEmail();
 
         contact.PhoneNumber
             .Should()
@@ -25,17 +30,24 @@ public static class ContactAssertions
         contact.City
             .Should()
             .NotBeNullOrWhiteSpace();
+
+        return new AndConstraint<ObjectAssertions>(assertions);
     }
 
-    /// <summary>
-    /// Assert that a IEnumerable of Contact has valid attributes / are valid
-    /// Please enclose with a new assertion scope, if necessary
-    /// </summary>
-    /// <param name="contacts">IEnumerable of Contact to assert</param>
-    public static void ShouldBeValidContacts(this IEnumerable<Contact> contacts)
+    public static AndConstraint<GenericCollectionAssertions<Contact>> BeValidContacts(
+        this GenericCollectionAssertions<Contact> assertions)
     {
-        contacts.Should()
-            .AllSatisfy(contact => contact.ShouldBeValidContact(),
-                because: "Each contact in the IEnumerable should be a valid person according to the validation rules.");
+        assertions.Subject
+            .Should()
+            .NotBeNullOrEmpty();
+
+        foreach (var contact in assertions.Subject)
+        {
+            contact
+                .Should()
+                .BeValidContact();
+        }
+
+        return new AndConstraint<GenericCollectionAssertions<Contact>>(assertions);
     }
 }

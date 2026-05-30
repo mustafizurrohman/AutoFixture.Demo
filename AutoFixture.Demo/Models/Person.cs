@@ -30,13 +30,22 @@ public class Person
     // TODO: Uncomment and show demo
     // public string RandomData { get; set; }
     
+    /// <summary>
+    /// Updates the person's date of birth, ensuring it is not in the future and not after the creation date.
+    /// </summary>
+    /// <param name="updatedDob">The new date of birth.</param>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// Thrown when the date of birth is after the creation date or in the future.
+    /// </exception>
     public void UpdateDateOfBirth(DateTime updatedDob)
     {
         if (updatedDob > CreatedOn)
-            throw new ArgumentException("Person must have Date of birth before the entry was created");
+            throw new ArgumentOutOfRangeException(nameof(updatedDob), 
+                $"Date of birth ({updatedDob:yyyy-MM-dd}) cannot be after the entry creation date ({CreatedOn:yyyy-MM-dd}).");
 
         if (updatedDob > Now)
-            throw new ArgumentException("Person cannot have Date of birth in the future");
+            throw new ArgumentOutOfRangeException(nameof(updatedDob), 
+                $"Date of birth ({updatedDob:yyyy-MM-dd}) cannot be in the future (now: {Now:yyyy-MM-dd}).");
 
         DateOfBirth = updatedDob;
     }

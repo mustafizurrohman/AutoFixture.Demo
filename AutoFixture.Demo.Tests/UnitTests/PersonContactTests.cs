@@ -23,7 +23,7 @@ public class PersonContactTests(ITestOutputHelper outputHelper)
         {
             personContacts.Should().NotBeNull();
 
-            personContacts.ShouldBeValidPersonContacts();
+            personContacts.Should().BeValidPersonContacts();
         }
     }
 
@@ -58,7 +58,7 @@ public class PersonContactTests(ITestOutputHelper outputHelper)
         {
             personContacts.Should().NotBeNull();
 
-            personContacts.ShouldBeValidPersonContacts();
+            personContacts.Should().BeValidPersonContacts();
         }
     }
 }

@@ -32,7 +32,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
         // ASSERT
         using (new AssertionScope())
         {
-            persons.ShouldBeValidPersons();
+            persons.Should().BeValidPersons();
         }
 
     }
@@ -101,7 +101,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
 
         // ASSERT
         action.Should()
-            .ThrowExactly<ArgumentException>();
+            .ThrowExactly<ArgumentOutOfRangeException>();
 
     }
 
