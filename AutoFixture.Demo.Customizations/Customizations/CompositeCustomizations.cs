@@ -6,7 +6,7 @@
 public sealed class AllCustomization(string localization = Localizations.DefaultLocalization) : CompositeCustomization(
           new PersonCustomization(localization),
           new ContactCustomization(localization),
-          new PersonContactCustomization(),
+          new PersonContactCustomization(localization),
           new BoolCustomization(localization),
           new EmailBodyCustomization(localization)
         )

@@ -7,9 +7,10 @@ namespace AutoFixture.Demo.Tests.UnitTests;
 public class PersonTests(ITestOutputHelper outputHelper) 
     : TestBase(outputHelper)
 {
+    private const int Length = 200;
 
     /// <summary>
-    /// This does generates person and checks that the generated values are in accordance
+    /// This does generate person and checks that the generated values are in accordance
     /// to the business rules
     /// </summary>
     /// <param name="persons"></param>
@@ -17,7 +18,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
     // [AutoData]
     [AutoDataCustom(localization: Localizations.German)]
     //[AutoDataPerson]
-    public void VerifyThatPersonsAreCorrectlyGenerated([ListLength(200)] List<Person> persons)
+    public void VerifyThatPersonsAreCorrectlyGenerated([ListLength(Length)] List<Person> persons)
     {
         PrintObjectInDebug(persons);
 
@@ -25,6 +26,8 @@ public class PersonTests(ITestOutputHelper outputHelper)
         using (new AssertionScope())
         {
             persons.Should().BeValidPersons();
+
+            persons.Count.Should().Be(Length); 
         }
 
     }
@@ -43,7 +46,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
             .With(p => p.CreatedOn, now);
             
         // ACT
-        var persons = personBuilder.CreateMany()
+        var persons = personBuilder.CreateMany(10)
             .ToImmutableList();
 
         PrintObjectInDebug(persons);

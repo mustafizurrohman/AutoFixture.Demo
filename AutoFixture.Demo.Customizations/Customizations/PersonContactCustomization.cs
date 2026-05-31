@@ -1,6 +1,7 @@
 ﻿namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class PersonContactCustomization : ICustomization
+public class PersonContactCustomization(
+    string localization = Localizations.DefaultLocalization) : ICustomization
 {
     public void Customize(IFixture fixture)
     {
@@ -13,7 +14,7 @@ public class PersonContactCustomization : ICustomization
                     contact.PhoneNumber,
                     contact.Street,
                     contact.City,
-                    EmailAddressFactory.CreateFor(person));
+                    EmailAddressFactory.CreateFor(person, localization));
 
                 return new PersonContact(person, contactWithRelatedEmail);
             })
