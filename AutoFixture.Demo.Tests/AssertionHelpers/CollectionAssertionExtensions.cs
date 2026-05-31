@@ -1,7 +1,4 @@
-﻿using FluentAssertions;
-using FluentAssertions.Collections;
-using FluentAssertions.Execution;
-using FluentAssertions.Primitives;
+﻿using FluentAssertions.Collections;
 
 namespace AutoFixture.Demo.Tests.AssertionHelpers;
 

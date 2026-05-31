@@ -1,5 +1,4 @@
-﻿using Bogus;
-using System.Globalization;
+﻿using System.Globalization;
 using System.Text;
 
 namespace AutoFixture.Demo.Customizations.Customizations;

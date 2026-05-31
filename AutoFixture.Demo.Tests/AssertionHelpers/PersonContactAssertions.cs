@@ -1,7 +1,6 @@
 ﻿// ReSharper disable MemberCanBePrivate.Global
-using FluentAssertions;
+
 using FluentAssertions.Collections;
-using FluentAssertions.Execution;
 using FluentAssertions.Primitives;
 
 namespace AutoFixture.Demo.Tests.AssertionHelpers;
@@ -9,22 +8,36 @@ namespace AutoFixture.Demo.Tests.AssertionHelpers;
 public static class PersonContactAssertions
 {
     /// <summary>
-    /// Asserts that a <see cref="PersonContact"/> has a valid person and contact.
+    /// Asserts that the subject is exactly of type <see cref="PersonContact"/>
+    /// and that both the related person and contact are valid.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// personContact
+    ///     .Should()
+    ///     .BeValidPersonContact();
+    ///
+    /// personContact
+    ///     .Should()
+    ///     .BeValidPersonContact("because generated person contacts should be valid");
+    /// </code>
+    /// </example>
     [CustomAssertion]
     public static AndConstraint<ObjectAssertions> BeValidPersonContact(
-        this ObjectAssertions assertions)
+        this ObjectAssertions assertions,
+        string because = "",
+        params object[] becauseArgs)
     {
-        assertions.Subject
+        ArgumentNullException.ThrowIfNull(assertions);
+
+        using var scope = new AssertionScope(nameof(PersonContact));
+
+        var personContact = assertions.Subject
             .Should()
-            .BeAssignableTo<PersonContact>(because: "the subject should be a person contact");
-
-        if (assertions.Subject is not PersonContact personContact)
-        {
-            return new AndConstraint<ObjectAssertions>(assertions);
-        }
-
-        using var _ = new AssertionScope(nameof(PersonContact));
+            .BeOfType<PersonContact>(
+                because: because,
+                becauseArgs: becauseArgs)
+            .Which;
 
         personContact.Person
             .Should()
@@ -38,13 +51,31 @@ public static class PersonContactAssertions
     }
 
     /// <summary>
-    /// Asserts that every <see cref="PersonContact"/> in a collection is valid.
+    /// Asserts that the subject is exactly of type <see cref="PersonContact"/>
+    /// and that both the related person and contact are valid.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// personContact
+    ///     .Should()
+    ///     .BeValidPersonContact();
+    ///
+    /// personContact
+    ///     .Should()
+    ///     .BeValidPersonContact("because generated person contacts should be valid");
+    /// </code>
+    /// </example>
     [CustomAssertion]
     public static AndConstraint<GenericCollectionAssertions<PersonContact>> BeValidPersonContacts(
-        this GenericCollectionAssertions<PersonContact> assertions)
+        this GenericCollectionAssertions<PersonContact> assertions,
+        string because = "",
+        params object[] becauseArgs)
     {
+        ArgumentNullException.ThrowIfNull(assertions);
+
         return assertions.BeValidCollection(personContact =>
-            personContact.Should().BeValidPersonContact());
+            personContact
+                .Should()
+                .BeValidPersonContact(because, becauseArgs));
     }
 }

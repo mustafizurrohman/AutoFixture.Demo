@@ -15,7 +15,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
 
     /// <summary>
     /// Demo 1 : 
-    /// This does generates person and checks that the generated values are in accordance
+    /// This generates person and checks that the generated values are in accordance
     /// to the business rules
     /// TODO: Change customization and see effects
     /// TODO: Add new property to person and demonstrate that no refactor is necessary here
@@ -122,7 +122,6 @@ public class DemoTests(ITestOutputHelper outputHelper)
         // Act
         sut.SendAll();
 
-        // Assert
         // Assert that the send method was called once 
         // since only one message was present in buffer
         // We do not care about details of EmailMessage
@@ -141,7 +140,7 @@ public class DemoTests(ITestOutputHelper outputHelper)
     /// <param name="sut">System under test</param>
     [Theory]
     [AutoMoqData]
-    public void SendEmailToGateway_AutoMoq(List<EmailMessage> messages,
+    public void SendEmailToGateway_AutoMoq([CollectionCount(40)] List<EmailMessage> messages,
         [Frozen] Mock<IEmailGateway> mockGateway,
         EmailMessageBuffer sut)
     {
@@ -151,7 +150,6 @@ public class DemoTests(ITestOutputHelper outputHelper)
         // Act
         sut.SendAll();
 
-        // Assert
         // Assert that the send method was called the same number of times 
         // as there are messages in the buffer
         // We do not care about contents of EmailMessage
