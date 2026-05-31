@@ -44,24 +44,7 @@ public static class PersonContactAssertions
     public static AndConstraint<GenericCollectionAssertions<PersonContact>> BeValidPersonContacts(
         this GenericCollectionAssertions<PersonContact> assertions)
     {
-        assertions.Subject
-            .Should()
-            .NotBeNull(because: "the person contact collection should not be null");
-
-        if (assertions.Subject is null)
-        {
-            return new AndConstraint<GenericCollectionAssertions<PersonContact>>(assertions);
-        }
-
-        assertions.Subject
-            .Should()
-            .AllSatisfy(personContact =>
-            {
-                personContact
-                    .Should()
-                    .BeValidPersonContact();
-            }, because: "each person contact in the collection should be valid");
-
-        return new AndConstraint<GenericCollectionAssertions<PersonContact>>(assertions);
+        return assertions.BeValidCollection(personContact =>
+            personContact.Should().BeValidPersonContact());
     }
 }

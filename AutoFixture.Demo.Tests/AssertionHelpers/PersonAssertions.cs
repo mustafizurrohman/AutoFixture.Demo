@@ -97,25 +97,8 @@ public static class PersonAssertions
     public static AndConstraint<GenericCollectionAssertions<Person>> BeValidPersons(
         this GenericCollectionAssertions<Person> assertions)
     {
-        assertions.Subject
-            .Should()
-            .NotBeNull(because: "the person collection should not be null");
-
-        if (assertions.Subject is null)
-        {
-            return new AndConstraint<GenericCollectionAssertions<Person>>(assertions);
-        }
-
-        assertions.Subject
-            .Should()
-            .AllSatisfy(person =>
-            {
-                person
-                    .Should()
-                    .BeValidPerson();
-            }, because: "each person in the collection should be valid");
-
-        return new AndConstraint<GenericCollectionAssertions<Person>>(assertions);
+        return assertions.BeValidCollection(personContact =>
+            personContact.Should().BeValidPerson());
     }
 
     private static bool IsLetterOrDash(char character)

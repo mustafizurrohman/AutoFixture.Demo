@@ -37,17 +37,7 @@ public static class ContactAssertions
     public static AndConstraint<GenericCollectionAssertions<Contact>> BeValidContacts(
         this GenericCollectionAssertions<Contact> assertions)
     {
-        assertions.Subject
-            .Should()
-            .NotBeNullOrEmpty();
-
-        foreach (var contact in assertions.Subject)
-        {
-            contact
-                .Should()
-                .BeValidContact();
-        }
-
-        return new AndConstraint<GenericCollectionAssertions<Contact>>(assertions);
+        return assertions.BeValidCollection(personContact =>
+            personContact.Should().BeValidContact());
     }
 }
