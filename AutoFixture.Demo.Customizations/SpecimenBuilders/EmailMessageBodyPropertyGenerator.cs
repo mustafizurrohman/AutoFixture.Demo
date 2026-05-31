@@ -1,5 +1,6 @@
 ﻿namespace AutoFixture.Demo.Customizations.SpecimenBuilders;
-internal class EmailMessageBodyPropertyGenerator(string localization = Localizations.DefaultLocalization)
+
+internal sealed class EmailMessageBodyPropertyGenerator(string localization = Localizations.DefaultLocalization)
     : PropertyGeneratorBase(localization), ISpecimenBuilder
 {
     public object Create(object request, ISpecimenContext context)

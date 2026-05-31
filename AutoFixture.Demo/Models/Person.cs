@@ -52,6 +52,6 @@ public class Person
     
     public override string ToString()
     {
-        return FullName;
+        return FullName + Environment.NewLine + "DOB: " + $"{DateOfBirth:dd-MM-yyyy}";
     }
 }

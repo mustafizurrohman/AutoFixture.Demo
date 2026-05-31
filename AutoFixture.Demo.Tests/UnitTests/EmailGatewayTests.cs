@@ -4,6 +4,29 @@ public class EmailGatewayTests(ITestOutputHelper outputHelper)
     : TestBase(outputHelper)
 {
     [Fact]
+    public void EmailMessageBodyGenerator_PopulatesMessageBodyConstructorParameter()
+    {
+        // Arrange
+        var fixture = new Fixture()
+            .Customize(new AllCustomization());
+
+        // Act
+        var message = fixture.Create<EmailMessage>();
+
+        PrintObjectInDebug(message);
+
+        // Assert
+        message.MessageBody
+            .Should()
+            .NotBeNullOrWhiteSpace();
+
+        message.MessageBody
+            .Should()
+            .Contain(" ",
+                because: "the email body customization should generate a lorem paragraph for the messageBody constructor parameter");
+    }
+
+    [Fact]
     public void SendEmailToGateway_ManualMoq()
     {
         // Arrange

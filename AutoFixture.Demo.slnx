@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="Directory.build.props" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="AutoFixture.Demo\AutoFixture.Demo.csproj" />
+  <Project Path="AutoFixture.Demo.Customizations\AutoFixture.Demo.Customizations.csproj" />
+  <Project Path="AutoFixture.Demo.Tests\AutoFixture.Demo.Tests.csproj" />
+  <Project Path="AutoFixture.Demo.Core\AutoFixture.Demo.Core.csproj" />
+</Solution>

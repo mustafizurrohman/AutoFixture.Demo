@@ -22,10 +22,12 @@ public abstract class PropertyGeneratorBase
 
     protected static bool IsPropertyOfType(object request, Type type)
     {
-        if (request is not PropertyInfo propertyInfo) 
-            return false;
-
-        return propertyInfo.PropertyType == type;
+        return request switch
+        {
+            PropertyInfo propertyInfo => propertyInfo.PropertyType == type,
+            ParameterInfo parameterInfo => parameterInfo.ParameterType == type,
+            _ => false
+        };
     }
 
     private static bool IsStringProperty(object request)
@@ -35,7 +37,12 @@ public abstract class PropertyGeneratorBase
 
     private static string GetPropertyName(object request)
     {
-        return (request as PropertyInfo)?.Name ?? string.Empty;
+        return request switch
+        {
+            PropertyInfo propertyInfo => propertyInfo.Name,
+            ParameterInfo parameterInfo => parameterInfo.Name ?? string.Empty,
+            _ => string.Empty
+        };
     }
 
     protected static bool IsPhoneNumberProperty(object request)
@@ -45,7 +52,7 @@ public abstract class PropertyGeneratorBase
 
         var propertyName = GetPropertyName(request);
 
-        return propertyName.ContainStrings("phone", "number");
+        return propertyName.ContainStrings("phone");
     }
 
     protected static bool IsEmailProperty(object request)
@@ -79,7 +86,7 @@ public abstract class PropertyGeneratorBase
     }
 
     protected static bool IsDateOfBirthProperty(object request)
-    {        
+    {
         if (!IsPropertyOfType(request, typeof(DateTime)))
             return false;
 
