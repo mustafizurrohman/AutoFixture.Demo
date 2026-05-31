@@ -15,10 +15,8 @@ public static class ObjectExtensions
             var stringBuilder = new StringBuilder();
 
             using var stringWriter = new StringWriter(stringBuilder, CultureInfo.InvariantCulture);
-            using var jsonWriter = new JsonTextWriter(stringWriter)
-            {
-                Formatting = Formatting.Indented
-            };
+            using var jsonWriter = new JsonTextWriter(stringWriter);
+            jsonWriter.Formatting = Formatting.Indented;
 
             var serializer = JsonSerializer.CreateDefault(serializerSettings);
             serializer.Formatting = Formatting.Indented;

@@ -66,7 +66,7 @@ public static class Localizations
 
     #region -- Utility Methods -- 
 
-    private static List<string> _allLocalizations = new();
+    private static List<string> _allLocalizations = [];
 
     public static IReadOnlyList<string> GetAllLocalizations()
     {

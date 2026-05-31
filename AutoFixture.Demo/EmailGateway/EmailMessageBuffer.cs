@@ -2,7 +2,7 @@
 
 public class EmailMessageBuffer(IEmailGateway emailGateway)
 {
-    private readonly List<EmailMessage> _emails = new();
+    private readonly List<EmailMessage> _emails = [];
 
     private IEmailGateway EmailGateway { get; } = emailGateway;
 
