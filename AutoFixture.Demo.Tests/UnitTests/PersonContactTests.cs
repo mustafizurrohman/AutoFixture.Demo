@@ -15,7 +15,7 @@ public class PersonContactTests(ITestOutputHelper outputHelper)
     [Theory]
     [AutoDataCustom(Localizations.Dutch)]
     // [AutoDataPerson]
-    public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1([ListLength(100)] List<PersonContact> personContacts)
+    public void VerifyThatComplexObjectsAreCorrectlyGenerated_Variant1([CollectionCount(100)] List<PersonContact> personContacts)
     {
         PrintObjectInDebug(personContacts);
 

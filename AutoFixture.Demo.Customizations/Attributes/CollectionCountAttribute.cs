@@ -8,11 +8,11 @@ using Xunit;
 namespace AutoFixture.Demo.Customizations.Attributes;
 
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
-public sealed class ListLengthAttribute : CustomizeAttribute
+public sealed class CollectionCountAttribute : CustomizeAttribute
 {
     private readonly int _length;
 
-    public ListLengthAttribute(int length)
+    public CollectionCountAttribute(int length)
     {
         if (length < 0)
         {
@@ -39,7 +39,7 @@ public sealed class ListLengthAttribute : CustomizeAttribute
         if (parameter.Member is not MethodInfo method)
         {
             throw new InvalidOperationException(
-                $"{nameof(ListLengthAttribute)} can only be used on test method parameters.");
+                $"{nameof(CollectionCountAttribute)} can only be used on test method parameters.");
         }
 
         var isXunitTestMethod = method
@@ -50,7 +50,7 @@ public sealed class ListLengthAttribute : CustomizeAttribute
         if (!isXunitTestMethod)
         {
             throw new InvalidOperationException(
-                $"{nameof(ListLengthAttribute)} can only be used on parameters of xUnit test methods marked with [Fact] or [Theory].");
+                $"{nameof(CollectionCountAttribute)} can only be used on parameters of xUnit test methods marked with [Fact] or [Theory].");
         }
     }
 
@@ -60,7 +60,7 @@ public sealed class ListLengthAttribute : CustomizeAttribute
             parameter.ParameterType.GetGenericTypeDefinition() != typeof(List<>))
         {
             throw new InvalidOperationException(
-                $"{nameof(ListLengthAttribute)} can only be used on List<T> parameters.");
+                $"{nameof(CollectionCountAttribute)} can only be used on List<T> parameters.");
         }
     }
 

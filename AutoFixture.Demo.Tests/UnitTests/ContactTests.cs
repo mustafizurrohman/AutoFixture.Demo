@@ -10,7 +10,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
 {
     [Theory]
     [AutoDataCustom]
-    public void VerifyThatContactsAreCorrectlyGeneratedWithoutFixtureCustomization([ListLength(10)] List<Contact> contacts)
+    public void VerifyThatContactsAreCorrectlyGeneratedWithoutFixtureCustomization([CollectionCount(10)] List<Contact> contacts)
     {
         PrintObjectInDebug(contacts);
 
@@ -23,7 +23,7 @@ public class ContactTests(ITestOutputHelper outputHelper)
     [Theory]
     [AutoDataCustom(Localizations.Italian)]
     // [AutoDataContact]
-    public void VerifyThatContactsAreCorrectlyGeneratedWithFixtureCustomization([ListLength(10)] List<Contact> contacts)
+    public void VerifyThatContactsAreCorrectlyGeneratedWithFixtureCustomization([CollectionCount(10)] List<Contact> contacts)
     {
         PrintObjectInDebug(contacts);
 

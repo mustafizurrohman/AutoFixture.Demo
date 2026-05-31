@@ -18,7 +18,7 @@ public class PersonTests(ITestOutputHelper outputHelper)
     // [AutoData]
     [AutoDataCustom(localization: Localizations.German)]
     //[AutoDataPerson]
-    public void VerifyThatPersonsAreCorrectlyGenerated([ListLength(Length)] List<Person> persons)
+    public void VerifyThatPersonsAreCorrectlyGenerated([CollectionCount(Length)] List<Person> persons)
     {
         PrintObjectInDebug(persons);
 
