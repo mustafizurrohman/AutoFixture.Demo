@@ -1,31 +1,18 @@
+Here is a shorter and more logical version for GitHub:
+
 # AutoFixture.Demo
 
-This project demonstrates how AutoFixture can be used to generate test data
-for our unit tests. 
+This project demonstrates how to use [AutoFixture](https://github.com/AutoFixture/AutoFixture) to generate test data for unit tests.
 
-Furthermore, customization of the AutoFixture pipeline is also demonstrated. 
-For generation of 'fake' data [Bogus](https://github.com/bchavez/Bogus) is used. This can also be of course, adjusted
-as per own needs.
+It also shows how the AutoFixture pipeline can be customized when specific test data is required. Some custom specimen builders use [Bogus](https://github.com/bchavez/Bogus) to generate realistic and localized fake data.
 
-See 
-```cs
-AutoFixture.Demo.Customizations.SpecimenBuilders.PersonIdGenerator
-```
-for a custom implementation and other classes in Namespace
-```cs
-AutoFixture.Demo.Customizations.SpecimenBuilders
-```
-uses Bogus for simplification. 
+## What this project demonstrates
 
-> :warning: **Note:** In a real world scenario such customization of the AutoFixture pipeline
-is completely unnecessary and defeats the purpose of using AutoFixture. This is done
-here only for demonstration purposes.
+* Generating test data with AutoFixture
+* Customizing the AutoFixture pipeline
+* Using Bogus for localized fake data
+* Writing expressive assertions with [FluentAssertions](https://fluentassertions.com/)
 
-For Assertions [FluentAssertions](https://fluentassertions.com/) is used. Please refer
-to the use of extension methods for assertions in the following namespace-
+## Goal
 
-```cs
-AutoFixture.Demo.Tests.AssertionHelpers
-```
-
-Have fun writing better tests with AutoFixture and FluentAssertions. 
+The goal of this project is to demonstrate practical ways to write cleaner, more maintainable unit tests with AutoFixture, Bogus, and FluentAssertions.
