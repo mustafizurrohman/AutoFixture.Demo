@@ -40,7 +40,10 @@ internal static class EmailAddressFactory
         var nameOrders = new[]
         {
             new[] { firstName, lastName },
-            new[] { lastName, firstName }
+            new[] { lastName, firstName },
+            new[] { firstName },
+            new[] { firstName.GetFirstChars(1), lastName },
+            new[] { firstName, lastName.GetFirstChars(1)}
         };
 
         var separators = new[]

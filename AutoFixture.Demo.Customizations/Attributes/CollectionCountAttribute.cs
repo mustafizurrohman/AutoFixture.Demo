@@ -8,21 +8,13 @@ using Xunit;
 namespace AutoFixture.Demo.Customizations.Attributes;
 
 [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = false)]
-public sealed class CollectionCountAttribute : CustomizeAttribute
+public sealed class CollectionCountAttribute(int length) : CustomizeAttribute
 {
-    private readonly int _length;
-
-    public CollectionCountAttribute(int length)
-    {
-        if (length < 0)
-        {
-            throw new ArgumentOutOfRangeException(
-                nameof(length),
-                "List length must be greater than or equal to 0.");
-        }
-
-        _length = length;
-    }
+    private readonly int _length = length >= 0
+        ? length
+        : throw new ArgumentOutOfRangeException(
+            nameof(length),
+            "Collection count must be greater than or equal to 0.");
 
     public override ICustomization GetCustomization(ParameterInfo parameter)
     {

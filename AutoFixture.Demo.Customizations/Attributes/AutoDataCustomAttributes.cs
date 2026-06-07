@@ -14,24 +14,6 @@ public sealed class AutoDataCustomAttribute(string localization = Localizations.
 }
 
 /// <summary>
-/// Customizations for person
-/// </summary>
-[AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataPersonAttribute(string localization = Localizations.DefaultLocalization) 
-    : AutoDataAttribute(() => new Fixture().Customize(new PersonCustomization(localization)))
-{
-}
-
-/// <summary>
-/// Customizations for Contact
-/// </summary>
-[AttributeUsage(AttributeTargets.Method)]
-public sealed class AutoDataContactAttribute(string localization = Localizations.DefaultLocalization) 
-    : AutoDataAttribute(() => new Fixture().Customize(new ContactCustomization(localization)))
-{
-}
-
-/// <summary>
 /// AutoMoq customization
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]

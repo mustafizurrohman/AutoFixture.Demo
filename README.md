@@ -8,9 +8,8 @@ It also shows how the AutoFixture pipeline can be customized when specific test 
 
 ## What this project demonstrates
 
-* Generating test data with AutoFixture
+* Generating test data with AutoFixture while using Bogus for localized fake data
 * Customizing the AutoFixture pipeline
-* Using Bogus for localized fake data
 * Writing expressive assertions with [FluentAssertions](https://fluentassertions.com/)
 
 ## Goal

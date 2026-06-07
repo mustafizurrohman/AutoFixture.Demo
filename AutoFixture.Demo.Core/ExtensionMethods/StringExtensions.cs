@@ -15,4 +15,9 @@ public static class StringExtensions
     {
         return stringsToCompare.All(str => propertyName.ContainsIgnoreCultureIgnoreCase(str));
     }
+    
+    public static string GetFirstChars(this string str, int count)
+    {
+        return str.Substring(0, Math.Min(count, str.Length));
+    }
 }
