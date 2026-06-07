@@ -1,8 +1,5 @@
-using System;
-using AutoFixture;
 using AutoFixture.Demo.Customizations.SpecimenBuilders;
 using AutoFixture.Demo.Entities;
-using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
