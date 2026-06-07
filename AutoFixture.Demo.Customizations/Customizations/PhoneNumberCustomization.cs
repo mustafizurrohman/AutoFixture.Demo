@@ -6,16 +6,14 @@ using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class PhoneNumberCustomization(string localization = Localizations.DefaultLocalization)
+public sealed class PhoneNumberCustomization(string localization = Localizations.DefaultLocalization)
     : ICustomization
 {
-    private string Localization { get; } = localization;
-
     public void Customize(IFixture fixture)
     {
         ArgumentNullException.ThrowIfNull(fixture);
 
-        fixture.Customizations.Add(new PhoneNumberPropertyGenerator(Localization));
+        fixture.Customizations.Add(new PhoneNumberPropertyGenerator(localization));
     }
 
     private sealed class PhoneNumberPropertyGenerator(string localization = Localizations.DefaultLocalization)
@@ -23,12 +21,9 @@ public class PhoneNumberCustomization(string localization = Localizations.Defaul
     {
         public object Create(object request, ISpecimenContext context)
         {
-            if (!IsPhoneNumberProperty(request))
-            {
-                return new NoSpecimen();
-            }
-
-            return Faker.Phone.PhoneNumber();
+            return IsPhoneNumberProperty(request)
+                ? Faker.Phone.PhoneNumber()
+                : new NoSpecimen();
         }
     }
 }

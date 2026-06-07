@@ -6,16 +6,14 @@ using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class EmailCustomization(string localization = Localizations.DefaultLocalization)
+public sealed class EmailCustomization(string localization = Localizations.DefaultLocalization)
     : ICustomization
 {
-    private string Localization { get; } = localization;
-
     public void Customize(IFixture fixture)
     {
         ArgumentNullException.ThrowIfNull(fixture);
 
-        fixture.Customizations.Add(new EmailPropertyGenerator(Localization));
+        fixture.Customizations.Add(new EmailPropertyGenerator(localization));
     }
 
     private sealed class EmailPropertyGenerator(string localization = Localizations.DefaultLocalization)
@@ -23,12 +21,9 @@ public class EmailCustomization(string localization = Localizations.DefaultLocal
     {
         public object Create(object request, ISpecimenContext context)
         {
-            if (IsEmailProperty(request))
-            {
-                return Faker.Internet.Email();
-            }
-
-            return new NoSpecimen();
+            return IsEmailProperty(request)
+                ? Faker.Internet.Email()
+                : new NoSpecimen();
         }
     }
 }

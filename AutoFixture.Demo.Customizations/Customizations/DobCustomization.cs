@@ -6,16 +6,14 @@ using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class DobCustomization(string localization = Localizations.DefaultLocalization)
+public sealed class DobCustomization(string localization = Localizations.DefaultLocalization)
     : ICustomization
 {
-    private string Localization { get; } = localization;
-
     public void Customize(IFixture fixture)
     {
         ArgumentNullException.ThrowIfNull(fixture);
 
-        fixture.Customizations.Add(new DateOfBirthPropertyGenerator(Localization));
+        fixture.Customizations.Add(new DateOfBirthPropertyGenerator(localization));
     }
 
     private sealed class DateOfBirthPropertyGenerator(string localization = Localizations.DefaultLocalization)
@@ -28,9 +26,9 @@ public class DobCustomization(string localization = Localizations.DefaultLocaliz
                 return new NoSpecimen();
             }
 
-            var now = DateTime.Now;
+            var today = DateTime.Today;
 
-            return Faker.Date.Between(now.AddYears(-100), now.AddDays(-1));
+            return Faker.Date.Between(today.AddYears(-100), today.AddDays(-1));
         }
     }
 }

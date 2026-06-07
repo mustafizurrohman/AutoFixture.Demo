@@ -6,16 +6,14 @@ using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class CityCustomization(string localization = Localizations.DefaultLocalization)
+public sealed class CityCustomization(string localization = Localizations.DefaultLocalization)
     : ICustomization
 {
-    private string Localization { get; } = localization;
-
     public void Customize(IFixture fixture)
     {
         ArgumentNullException.ThrowIfNull(fixture);
 
-        fixture.Customizations.Add(new CityPropertyGenerator(Localization));
+        fixture.Customizations.Add(new CityPropertyGenerator(localization));
     }
 
     private sealed class CityPropertyGenerator(string localization = Localizations.DefaultLocalization)
@@ -23,12 +21,9 @@ public class CityCustomization(string localization = Localizations.DefaultLocali
     {
         public object Create(object request, ISpecimenContext context)
         {
-            if (!IsCityProperty(request))
-            {
-                return new NoSpecimen();
-            }
-
-            return Faker.Address.City();
+            return IsCityProperty(request)
+                ? Faker.Address.City()
+                : new NoSpecimen();
         }
     }
 }

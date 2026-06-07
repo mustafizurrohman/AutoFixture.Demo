@@ -6,16 +6,14 @@ using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class NameCustomization(string localization = Localizations.DefaultLocalization)
+public sealed class NameCustomization(string localization = Localizations.DefaultLocalization)
     : ICustomization
 {
-    private string Localization { get; } = localization;
-
     public void Customize(IFixture fixture)
     {
         ArgumentNullException.ThrowIfNull(fixture);
 
-        fixture.Customizations.Add(new NamePropertyGenerator(Localization));
+        fixture.Customizations.Add(new NamePropertyGenerator(localization));
     }
 
     private sealed class NamePropertyGenerator(string localization = Localizations.DefaultLocalization)
@@ -28,8 +26,8 @@ public class NameCustomization(string localization = Localizations.DefaultLocali
             if (IsFirstNameProperty(request))
             {
                 var nameParts = GetOrCreateNameParts();
-
                 nameParts.FirstNameConsumed = true;
+
                 ClearNamePartsIfConsumed();
 
                 return nameParts.FirstName;
@@ -38,8 +36,8 @@ public class NameCustomization(string localization = Localizations.DefaultLocali
             if (IsLastNameProperty(request))
             {
                 var nameParts = GetOrCreateNameParts();
-
                 nameParts.LastNameConsumed = true;
+
                 ClearNamePartsIfConsumed();
 
                 return nameParts.LastName;
@@ -59,16 +57,11 @@ public class NameCustomization(string localization = Localizations.DefaultLocali
                 .FullName()
                 .Split(' ', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
-            if (fullNameParts.Length >= 2)
+            return fullNameParts switch
             {
-                return new NameParts(
-                    FirstName: fullNameParts[0],
-                    LastName: fullNameParts[^1]);
-            }
-
-            return new NameParts(
-                FirstName: Faker.Name.FirstName(),
-                LastName: Faker.Name.LastName());
+                [var firstName, .., var lastName] => new NameParts(firstName, lastName),
+                _ => new NameParts(Faker.Name.FirstName(), Faker.Name.LastName()),
+            };
         }
 
         private void ClearNamePartsIfConsumed()

@@ -6,16 +6,14 @@ using AutoFixture.Kernel;
 
 namespace AutoFixture.Demo.Customizations.Customizations;
 
-public class BoolCustomization(string localization = Localizations.DefaultLocalization)
+public sealed class BoolCustomization(string localization = Localizations.DefaultLocalization)
     : ICustomization
 {
-    private string Localization { get; } = localization;
-
     public void Customize(IFixture fixture)
     {
         ArgumentNullException.ThrowIfNull(fixture);
 
-        fixture.Customizations.Add(new BoolPropertyGenerator(Localization));
+        fixture.Customizations.Add(new BoolPropertyGenerator(localization));
     }
 
     private sealed class BoolPropertyGenerator(string localization = Localizations.DefaultLocalization)
@@ -28,7 +26,7 @@ public class BoolCustomization(string localization = Localizations.DefaultLocali
                 return new NoSpecimen();
             }
 
-            return Faker.Random.Number(10, 1000) % 5 == 0;
+            return Faker.Random.Bool();
         }
     }
 }
